@@ -1,0 +1,193 @@
+# If you want to customize this file, COPY this file and put it into the data/ folder.
+
+# By default, Sangou will fill in any word wrapped in {} with a shorthand from here.
+shorthands:
+    normal: <:en:1392359582193684510>
+    angry: <:en_what:1392360445767323658>
+    unamused: <:en_eyeclosed:1392359743778984059>
+    cry: <:en_distressed_meow:1392359814528766064>
+    dizzy: <:en5:1392359938952794283>
+    sleep: <:en_yawn:1392359982955233371>
+    drunk: <:en_pancakes:1392360025330290812>
+    eat: <:en_speak:1392360567209201684>
+    fear: <:en_wtf2:1392360225260048547>
+    smug: <:en_smile:1392360369388916796>
+    huh: <:en_huh:1392359634895114270>
+    love: <:en_83c:1392360175221997700>
+
+# A list of things that Sangou will "listen" to.
+# For example, "Listening to the validity of trans people".
+games:
+  - to phosphor shrimp swim
+  - a barrens gas leak
+  - a factory press
+  - a fire inside a broken tv
+  - silver playing chess
+  - rowbot's rusty joints moving
+  - T H E   S Q U A R E S  appearing
+  - Proto's water cooling system
+  - Calamus shouting for Alula
+  - Cedrick's plane engine starting
+  - vines expanding and retracting
+  - a ram eating moss
+  - the bubbling of a boiling fish stew
+  - a kid running after a phosphor firefly
+  - a phosphor tree photosynthesizing
+  - water dripping in the ruins
+  - Calamus and Alula playing
+  - clothes drying in a rack
+  - a boat floating
+  - the waves of the sea
+  - magpie's moving his wagon 
+  - the Shepard teleporting
+  - a ram screaming into the wind
+  - a robot collecting water samples
+  - the elevator going up
+  - someone walking on the catwalks
+  - a coffee machine in the cafe
+  - a clock guy ticking
+  - someone using the stapler
+  - someone cutting their hair in the bathroom
+  - a roomba cleaning an empty apartment
+  - mason watering his plants
+  - someone playing the piano in their apartment
+  - the penguin saying h e l l o
+  - a refrigerator running in an apartment
+  - ling making pancakes
+  - vendors at the street
+  - Kip using glitter glue
+  - someone taking a photo in the photo center
+  - red phosphorus chemically reacting
+  - Lamplighter's alarm clock
+  - Lamplighter refueling a lamp
+  - Kevin's heater humming
+  - Rue looking at the horizon
+  - scientists watching numbers go up and down
+  - the silence inside the library
+  - George traduce one of the Authors books
+  - my self acceptance and worth
+  - Niko's dreams
+  - the sun shattering
+
+# === ERRORS ===
+
+# An error message for commands that can be used in servers only.
+err_serversonly:
+  - "{huh} Hey, you have to do this in a server... I don't know what server you want..."
+  - "{dizzy} Where do you want me to do this at?"
+
+# An error message for commands that can be used in DMs only.
+err_dmsonly:
+  - "{normal} You can only do this in DMs, you know."
+  - "{huh} Could we please do this somewhere else? How about DMs..."
+
+# An error message for if Sangou cannot understand the quotes in a command.
+err_quotes:
+  - "{dizzy} I didn't get that, your quotes are off..."
+  - "{angry} Hey, check your quotes! I can't work with this input..."
+  - "{huh} Wait... Could you explain that again? Your quotes are confusing me..."
+
+# An error message for unauthorized users missing a specific role.
+err_role:
+  - "{angry} No, I'm not listening to you! You don't have the role you need for that."
+  - "{sleep} Nope. Didn't hear that. I can only hear people with a role saying that."
+  - "{unamused} You seem to be missing a role..."
+
+# An error message for when the bot is missing permissions.
+err_perms:
+  - "{huh} I can't do that, I don't have the permissions for that. I need these."
+  - "{fear} I tried, but it didn't work! It told me I needed these permissions..."
+  - "{unamused} How am I supposed to do that without permissions... I need these."
+  - "{cry} You ask me to do things I cant do..."
+
+# An error message for when a command is on cooldown.
+err_cooldown:
+  - "{dizzy} Hey, slow down, I can't go that fast... Give me "
+  - "{angry} Stop trying to overwork me, I'm on a cooldown... Try again in "
+  - "{smug} Sure, I'll get to that... in "
+  - "{sleep} Im tired... I'll be awake in "
+
+# An error message for when a command is missing an attachment.
+err_noattachment:
+  - "{huh} You didn't give me an attachment to work with..."
+  - "{angry} It's not funny, I need an attachment to work with."
+  - "{unamused} W-With what attachment?"
+  - "{drunk} Ooo! Is the attachment invisible?"
+
+# A generic error message for failed checks. Used for manager commands mostly.
+err_checkfail:
+  - "{normal} Lalala, I can't hear you. You're unauthorized."
+  - "{sleep} ...Huh? Who are you? You can't ask me to do that."
+  - "{unamused} Why am I going to do that for you...? I don't know you."
+  - "{sleep} What? I can't hear you..."
+
+# An error message for if the bot needs to DM you, but cannot.
+err_dmfail:
+  - "{fear} I can't do that, you won't let me DM you! Check your DM settings..."
+  - "{unamused} Hey, I can't DM you... check your settings first."
+
+# An error message for if a user given does not exist.
+err_usernotfound:
+  - "{huh} I don't know who that user is..."
+  - "{normal} Discord API says that's not a user."
+  - "{unamused} Hey, that isn't a user. It doesn't exist."
+  - "{dizzy} Who.. Who is that?"
+
+# An error message for if a user given is not on the server.
+err_membernotfound:
+  - "{normal} That's not a member on this server."
+  - "{huh} You either gave me something wrong, or that member isn't on this server..."
+  - "{normal} I looked, that's not a member here."
+  - "{sleep} I don't see them here..."
+
+# === WARNINGS ===
+
+# Used if you try to use a dangerous command on yourself.
+# {authorname} = Name of message author.
+warn_targetself:
+  - "{angry} For the sake of everyone else, {authorname}, don't do this to yourself!"
+  - "{unamused} {authorname}, you're a test subject, but this isn't safe..."
+  - "{normal} {authorname}, I'm not doing that."
+
+# Used if you try to use a dangerous command on himself.
+# {authorname} = Name of message author.
+warn_targetbot:
+  - "{smug} I'm sorry {authorname}, I'm afraid I can't do that."
+  - "{unamused} {authorname}, I am not a test subject like you."
+  - "{angry} Please leave me alone, {authorname}!"
+  
+# Used if a command times out.
+warn_timedout:
+  - "{normal} Your command timed out."
+  - "{sleep} I got bored waiting, so I timed out your command."
+  - "{angry} I can't wait for your response forever! Command timed out."
+
+# === INFORMATION ===
+
+# Used when pls quit is used.
+quit_deaths:
+  - "{cry} Not again! Why must you do this again!"
+  - "{sleep} I'm already asleep, this changes nothing..."
+  - "{huh} What? Drop the lightbulb? Okay..."
+  - "{eat} Yay, lunch break!"
+  - "{drunk} What, just because I had one drink? Boo..."
+  - "{smug} You're not safe, you know..."
+  - "{normal} Bathroom break!"
+
+# Used in pls errors when there are no errors.
+errors_noerrors:
+  - "{eat} You don't have any errors yet."
+  - "{sleep} I haven't seen any errors happen yet..."
+
+# Used with pls hello.
+hello_hello:
+  - "{normal} Helloooooo."
+  - "{eat} Hello. What's up?"
+  - "{sleep} ...Wha?"
+
+# === COMPONENTS ===
+
+# Used for messages with embeds.
+embed_msg:
+  - "{normal} If you can't see this, check your message link settings."
+  - "{eat} Here's your embed. Check your settings if you can't see it."

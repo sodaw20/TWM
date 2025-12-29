@@ -1,0 +1,36 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "*"
+"discord.py" = "==2.3.*"
+gidgethub = "*"
+httplib2 = "*"
+matplotlib = "*"
+parsedatetime = "*"
+pillow = "*"
+skyfield = "*"
+deepl = "*"
+unidecode = "*"
+PyYAML = "*"
+googletrans = {git = "https://github.com/c-goosen/py-googletrans.git"}
+pluralkit = "*"
+easgen = "*"
+pydub = "*"
+diff-match-patch = "*"
+jsonschema = "*"
+emoji = "*"
+tzdata = "*"
+pynacl = "*"
+pafy = "*"
+yt-dlp = {file = "https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz"}
+youtube-dlc = "*"
+ffmpeg = "*"
+youtube-dl = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
