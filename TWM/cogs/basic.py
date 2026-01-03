@@ -657,8 +657,8 @@ class Basic(Cog):
                 )
             else:
                 cogs_list = "\n".join(self.bot.cogs.keys())
-                await ctx.author.send("Send `pls getcommands (Cog name) to see a list of commands in that cog.")
-                await ctx.author.send("Here is a list of cogs.")
+                await ctx.author.send("Send `pls getcommands (Cog name)` to see a list of commands in that cog.")
+                await ctx.author.send("Here is a list of cogs:")
                 await ctx.send(cogs_list)
             
         else:
@@ -1100,8 +1100,10 @@ class Basic(Cog):
         What cog to get commands of."""
         cog = self.bot.get_cog(ext)
         commands = cog.get_commands()
+        commandlist = [c.name for c in commands]
+        seperator= '\n'
         await ctx.send("Run `pls help [command]` to see what a command does.")
-        await ctx.send([c.name for c in commands])
+        await ctx.send(seperator.join(commandlist))
 
 
 async def setup(bot):
