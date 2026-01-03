@@ -12,9 +12,7 @@ from helpers.sv_config import get_config
 
 
 class NameCheck(Cog):
-    """
-    Keeping names readable.
-    """
+    """Keeping names readable."""
 
     def __init__(self, bot):
         self.bot = bot
