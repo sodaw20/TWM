@@ -3,6 +3,7 @@ import discord
 def get_help(bot):
     cogs_list = bot.cogs.keys()
     sorted_cogs_list = sorted(cogs_list, key=str.lower)
+    filtered_cogs_list = []
     for n in sorted_cogs_list:
         if bot.get_cog(n).get_commands():
             filtered_cogs_list = filtered_cogs_list.append(n)
