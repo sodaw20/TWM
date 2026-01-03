@@ -8,7 +8,7 @@ def get_help(bot):
         if bot.get_cog(n).get_commands():
             segments = bot.get_cog(n).__doc__
             if segments:
-                filtered_cogs_list.append(n + " - " + segments[0])
+                filtered_cogs_list.append(n + " - " + segments)
             else:
                 filtered_cogs_list.append(n)
     cogs_message = "\n".join(filtered_cogs_list)
