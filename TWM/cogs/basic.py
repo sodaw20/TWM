@@ -16,6 +16,7 @@ from discord.ext.commands import Cog
 from helpers.embeds import stock_embed, author_embed
 from helpers.datafiles import fill_profile
 from helpers.placeholders import random_msg
+from helpers.help import get_help
 from zoneinfo import ZoneInfo, available_timezones
 import aiohttp
 import re as ren
@@ -657,7 +658,7 @@ class Basic(Cog):
                 cogs_list = "\n".join(self.bot.cogs.keys())
                 await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
                 await ctx.author.send("Here is a list of cogs:")
-                await ctx.author.send(cogs_list)
+                await get_help()
                 return await ctx.reply(
                     content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
@@ -666,7 +667,7 @@ class Basic(Cog):
                 cogs_list = "\n".join(self.bot.cogs.keys())
                 await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
                 await ctx.author.send("Here is a list of cogs:")
-                await ctx.author.send(cogs_list)
+                await get_help()
             
         else:
             botcommand = self.bot.get_command(command)
@@ -1108,31 +1109,28 @@ class Basic(Cog):
         # There's probably a better way to do this.
         # I dont care.
         # Fix it if you want, I made this at 2 AM
+        # At least it doesn't require a website that shuts down when someone makes the bot's repository private..
         if ext:
             cog = self.bot.get_cog(ext)
-            if cog:
-                commands = cog.get_commands()
-                if commands:
-                    commandlist = [c.name for c in commands]
-                    seperator= '\n'
-                    if ctx.guild:
-                        await ctx.author.send("Run `pls help [command]` to see what a command does.")
-                        await ctx.author.send(f"List of commands in {cog}")
-                        await ctx.author.send(seperator.join(commandlist))
-                        return await ctx.reply(
-                            content="As to not be rude, I have DMed the cog info to you.",
-                            mention_author=False,
-                        )
-                    else:
-                        await ctx.author.send("Run `pls help [command]` to see what a command does.")
-                        await ctx.author.send(f"List of commands in {cog}")
-                        await ctx.author.send(seperator.join(commandlist))
+            commands = cog.get_commands()
+            if commands:
+                commandlist = [c.name for c in commands]
+                if ctx.guild:
+                    await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                    await ctx.author.send(f"List of commands in {cog}")
+                    await ctx.author.send("\n".join(commandlist))
+                    return await ctx.reply(
+                        content="As to not be rude, I have DMed the cog info to you.",
+                        mention_author=False,
+                    )
                 else:
-                    await ctx.send("That cog has no commands!")
+                    await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                    await ctx.author.send(f"List of commands in {cog}")
+                    await ctx.author.send("\n".join(commandlist))
             else:
-                await ctx.send("Thats not a valid cog. Remember that cog names are case-sensitive!")
+                await ctx.send("That cog has no commands!")
         else:
-            await ctx.send("What cog do you want me to get the commands of?")
+            await ctx.send("Thats not a valid cog. Remember that cog names are case-sensitive!")
 
 
 async def setup(bot):
