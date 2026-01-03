@@ -1,11 +1,11 @@
 import discord
 
-def get_help(bot):
+def get_help(bot, tf):
     cogs_list = bot.cogs.keys()
     sorted_cogs_list = sorted(cogs_list, key=str.lower)
     filtered_cogs_list = []
     for n in sorted_cogs_list:
-        if bot.get_cog(n).get_commands():
+        if bot.get_cog(n).get_commands() or tf:
             segments = bot.get_cog(n).__doc__
             if segments:
                 filtered_cogs_list.append(n + " - " + segments)

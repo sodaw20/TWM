@@ -1096,20 +1096,22 @@ class Basic(Cog):
         await ctx.reply(embed=embed, mention_author=False)
 
     @commands.command(aliases=["getcommands"])
-    async def commands(self, ctx, *, ext: str):
+    async def commands(self, ctx, ext: str, more = False):
         """This gets all commands in a cog.
 
         Run `pls help` to get a list of cogs.
 
         - `ext`
-        What cog to get commands of. Case-sensitive."""
+        What cog to get commands of. Case-sensitive.
+        - `more`
+        Whether to show cogs without commands or not. True/False. Optional."""
         # There's probably a better way to do this.
         # I dont care.
         # Fix it if you want, I made this at 2 AM
         # At least it doesn't require a website that shuts down when someone makes the bot's repository private..
         cog = self.bot.get_cog(ext)
         if cog:
-            commands = get_commands(self.bot, cog)
+            commands = get_commands(self.bot, cog, more)
             if commands:
                 if ctx.guild:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
