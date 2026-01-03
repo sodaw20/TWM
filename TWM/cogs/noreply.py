@@ -14,9 +14,7 @@ from helpers.embeds import stock_embed, author_embed
 
 
 class Reply(Cog):
-    """
-    A cog that stops people from ping replying people who don't want to be.
-    """
+    """A cog that stops people from ping replying people who don't want to be."""
 
     def __init__(self, bot):
         self.bot = bot

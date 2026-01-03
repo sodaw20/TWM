@@ -8,9 +8,7 @@ from helpers.datafiles import get_guildfile, fill_usertrack, set_guildfile
 
 
 class usertrack(Cog):
-    """
-    Keeps tabs on users.
-    """
+    """Keeps tabs on users."""
 
     def __init__(self, bot):
         self.bot = bot

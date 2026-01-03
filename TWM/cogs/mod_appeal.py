@@ -9,9 +9,7 @@ from helpers.sv_config import get_config
 
 
 class ModAppeal(Cog):
-    """
-    Automatic responses for the Ban Appeal system.
-    """
+    """Automatic responses for the Ban Appeal system."""
 
     def __init__(self, bot):
         self.bot = bot

@@ -10,9 +10,7 @@ from helpers.sv_config import get_config
 
 
 class Cotd(Cog):
-    """
-    A Color of The Day system.
-    """
+    """A Color of The Day system."""
 
     def __init__(self, bot):
         self.bot = bot

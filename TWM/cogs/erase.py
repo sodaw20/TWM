@@ -14,9 +14,7 @@ from helpers.placeholders import random_msg
 
 
 class Erase(Cog):
-    """
-    For when you want to be forgotten.
-    """
+    """For when you want to be forgotten."""
 
     def __init__(self, bot):
         self.bot = bot

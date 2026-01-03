@@ -8,9 +8,7 @@ from helpers.datafiles import get_botfile, set_botfile, get_userfile, set_userfi
 
 
 class Analytics(Cog):
-    """
-    I need to know. I NEED to know!
-    """
+    """I need to know. I NEED to know!"""
 
     def __init__(self, bot):
         self.bot = bot

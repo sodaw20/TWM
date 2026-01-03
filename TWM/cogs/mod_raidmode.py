@@ -12,9 +12,7 @@ from helpers.datafiles import get_guildfile, set_guildfile
 
 
 class ModRaidmode(Cog):
-    """
-    A tool to help moderators manage raids.
-    """
+    """A tool to help moderators manage raids."""
 
     def __init__(self, bot):
         self.bot = bot

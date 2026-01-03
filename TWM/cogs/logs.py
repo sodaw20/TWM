@@ -17,9 +17,7 @@ from helpers.embeds import (
 
 
 class Logs2(Cog):
-    """
-    An advanced logging mechanism, which logs. Logs many changes.
-    """
+    """An advanced logging mechanism, which logs. Logs many changes."""
 
     def __init__(self, bot):
         self.bot = bot

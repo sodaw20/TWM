@@ -8,9 +8,7 @@ from helpers.embeds import stock_embed, author_embed
 
 
 class Shortcuts(Cog):
-    """
-    Commands to manage Prefixes and Aliases.
-    """
+    """Commands to manage Prefixes and Aliases."""
 
     def __init__(self, bot):
         self.bot = bot

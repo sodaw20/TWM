@@ -8,9 +8,7 @@ from helpers.datafiles import get_guildfile, set_guildfile
 
 
 class Snippets(Cog):
-    """
-    Commands for easily explaining things.
-    """
+    """Commands for easily explaining things."""
 
     def __init__(self, bot):
         self.bot = bot

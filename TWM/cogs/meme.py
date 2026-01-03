@@ -10,9 +10,7 @@ import datetime
 
 
 class Meme(Cog):
-    """
-    Meme commands.
-    """
+    """Meme commands."""
 
     def __init__(self, bot):
         self.bot = bot

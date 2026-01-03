@@ -5,9 +5,7 @@ from helpers.embeds import stock_embed
 
 
 class Experiments(Cog):
-    """
-    Nothing in this section is under warranty.
-    """
+    """Nothing in this section is under warranty."""
 
     def __init__(self, bot):
         self.bot = bot

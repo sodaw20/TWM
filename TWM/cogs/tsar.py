@@ -13,9 +13,7 @@ from helpers.placeholders import random_msg
 
 
 class TSAR(Cog):
-    """
-    True. Self. Assignable. Roles.
-    """
+    """True. Self. Assignable. Roles."""
 
     def __init__(self, bot):
         self.bot = bot

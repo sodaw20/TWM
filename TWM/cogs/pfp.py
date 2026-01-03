@@ -13,9 +13,7 @@ from helpers.sv_config import get_config
 
 
 class Pfp(Cog):
-    """
-    Dynamic pfp system.
-    """
+    """Dynamic pfp system."""
 
     def __init__(self, bot):
         self.bot = bot

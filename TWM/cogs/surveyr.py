@@ -18,9 +18,7 @@ from helpers.datafiles import (
 
 
 class Surveyr(Cog):
-    """
-    An open source Pollr clone.
-    """
+    """An open source Pollr clone."""
 
     def __init__(self, bot):
         self.bot = bot
