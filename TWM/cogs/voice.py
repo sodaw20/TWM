@@ -18,27 +18,6 @@ class Voice(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    def check_session(ctx):
-        """
-        Checks if there is a session with the same characteristics (guild and channel) as ctx param.
-
-        :param ctx: discord.ext.commands.Context
-
-        :return: session()
-        """
-        if len(sessions) > 0:
-            for i in sessions:
-                if i.guild == ctx.guild and i.channel == ctx.author.voice.channel:
-                    return i
-            session = utilities.Session(
-                ctx.guild, ctx.author.voice.channel, id=len(sessions))
-            sessions.append(session)
-            return session
-        else:
-            session = utilities.Session(ctx.guild, ctx.author.voice.channel, id=0)
-            sessions.append(session)
-            return session
-
     @commands.command()
     async def join(self, ctx):
         """This joins your VC channel.
@@ -50,6 +29,7 @@ class Voice(Cog):
             return await ctx.send("You need to be in a voice channel first.")
 
         channel = ctx.author.voice.channel
+
         existing_vc = ctx.guild.voice_client
         if existing_vc is not None:
             if getattr(existing_vc, "channel", None) == channel:
@@ -143,7 +123,7 @@ class Voice(Cog):
 
 
         source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
-        voice.play(source)
+        voice.play(source, after=None)
 
 
 

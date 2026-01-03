@@ -2,18 +2,19 @@
 
 # By default, Sangou will fill in any word wrapped in {} with a shorthand from here.
 shorthands:
-    normal: <:en:1392359582193684510>
+    normal: <:en:1397723699087540274>
     angry: <:en_what:1392360445767323658>
-    unamused: <:en_eyeclosed:1392359743778984059>
-    cry: <:en_distressed_meow:1392359814528766064>
-    dizzy: <:en5:1392359938952794283>
-    sleep: <:en_yawn:1392359982955233371>
-    drunk: <:en_pancakes:1392360025330290812>
-    eat: <:en_speak:1392360567209201684>
-    fear: <:en_wtf2:1392360225260048547>
-    smug: <:en_smile:1392360369388916796>
-    huh: <:en_huh:1392359634895114270>
-    love: <:en_83c:1392360175221997700>
+    unamused: <:en_eyeclosed:1397723597589446666>
+    cry: <:en_distressed_meow:1397723554333851648>
+    dizzy: <:en5:1397723521572143206>
+    sleep: <:en_yawn:1397723479041900655>
+    drunk: <:en_pancakes:1397723453641195712>
+    eat: <:en_speak:1397723209847279647>
+    fear: <:en_wtf2:1397723322673795082>
+    smug: <:en_smile:1397723280307126474>
+    huh: <:en_huh:1397723626094202900>
+    love: <:en_83c:1397723392953815040>
+    squares: <:squares:1456173144758030380>
 
 # A list of things that Sangou will "listen" to.
 # For example, "Listening to the validity of trans people".
@@ -191,3 +192,59 @@ hello_hello:
 embed_msg:
   - "{normal} If you can't see this, check your message link settings."
   - "{eat} Here's your embed. Check your settings if you can't see it."
+
+# == BASIC.PY ==
+
+# Message for 'pls kill'
+kill_msg:
+ - "returned the sun to the tower."
+ - "gets crushed by the refuge elevator."
+ - "gets dropped off in the middle of the phospor sea with a weight tied to them."
+ - "gets trapped in an unknown closed room of the ruins without food or water."
+ - "invoked the ***wrath of Alula***."
+ - "tries to steal from Magpie and gets shot ten times."
+ - "tried to meet the Author."
+ - "thought that the controls for Cedrick's plane would be intuitive."
+ - "found out about George's seventh personality."
+ - "tried Plight's routine for a day."
+ - "tried to hack Silver."
+ - "never left the house Niko woke up in."
+ - "took a sip out of Plight's coffee."
+ - "falls into the squares. {squares}"
+ - "convinced Nightmargin to personally remove them from the game."
+ - "fell to their death exploring the mines."
+ - "thought it would be a good idea to take a ride in one of the convenyor belts in the factory."
+ - "tried to tell The World Machine a paradox."
+ - "wasn't warned about the phospor gas."
+ - "tried to insert Super Mario Bros. into Prototype's disk drive."
+ - "tried to run doom on The World Machine."
+ - "tried to take Niko's pancakes."
+ - "tried to see the Shepard moving."
+ - "tried to stay up late and talk to the Watcher."
+ - "told Niko they were a cat."
+ - "constantly didn't get permission to rest."
+ - "looked a little *too much* like pancakes."
+ - "tried to understand the power of  T H E   R A M."
+ - "failed to make an elevator button."
+ - "tried to figure out how OneShot knows their name."
+ - "tried to kidnap a ram."
+ - "tried to fry Alula."
+ - "said  h e l l o  to the penguin."
+ - "didn't reply  h e l l o  to the penguin."
+ - "got a molotov thrown at them."
+ - "found a pipebomb in their mailbox."
+ - "told Niko to commit arson on them."
+ - "asked The World Machine if there was a seahorse emoji."
+
+# Message for 'pls revive'
+revive_msg:
+ - "convinced The World Machine to rollback the save."
+ - "was added into the game."
+ - "gave Niko some pancakes."
+ - "shattered the sun."
+ - "was blessed by Maize."
+
+# Message for 'pls sacrifice'
+sacrifice_msg:
+ - "became one of the keys to the solstice ending."
+ - "was sacrificed in the name of Niko and The World Machine."

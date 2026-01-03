@@ -15,6 +15,7 @@ from discord.ext import commands
 from discord.ext.commands import Cog
 from helpers.embeds import stock_embed, author_embed
 from helpers.datafiles import fill_profile
+from helpers.placeholders import random_msg
 from zoneinfo import ZoneInfo, available_timezones
 import aiohttp
 import re as ren
@@ -405,34 +406,42 @@ class Basic(Cog):
     async def kill(self, ctx, *, someone: str):
         """This kills someone.
 
-        Much like Hug, I really need to make this random.
-        Unfortunately, I am both lazy and unpaid. Oh well.
+        Use this at your own risk
 
         - `someone`
         Who's going to die. Could just be text."""
-        await ctx.send(f"{someone} returned the sun to the tower.")
+        msg = random_msg("kill_msg")
+        await ctx.send(f"{someone} {msg}")
 
     @commands.command()
     async def sacrifice(self, ctx, *, someone: str):
-        """This sacrifices someone to the Niko cult.
+        """This sacrifices someone. 
+        
+        No, we are not a cult.
 
         - `someone`
         Who's going to be sacrificed. Could just be text."""
-        await ctx.send(f"{someone} was sacrificed for a greater good.")
+        msg = random_msg("sacrifice_msg")
+        await ctx.send(f"{someone} {msg}")
 
     @commands.command()
     async def revive(self, ctx, *, someone: str):
         """This revives someone.
 
+        HOW DID THEY DIE IN THE FIRST PLACE???
+
         - `someone`
-        Who's going to be sacrificed. Could just be text."""
-        await ctx.send(f"{someone} was brought back to life!")
+        Who's going to be revived. Could just be text."""
+        msg = random_msg("revive_msg")
+        await ctx.send(f"{someone} {msg}")
 
     @commands.command()
     async def execute(self, ctx, *, someone: str):
         """This executes someone.
+
+        Why would you do this??
+
         - `someone`
-	- `reason`
         Who's going to be executed. Could just be text."""
         await ctx.send(f"{someone} was executed at the altar.")
 
@@ -488,18 +497,6 @@ class Basic(Cog):
         if target is None:
             target = ctx.guild
         return await ctx.send(content=target.icon.url)
-
-    @commands.bot_has_permissions(attach_files=True)
-    @commands.command(aliases=["bigtimerush"])
-    async def btr(self, ctx):
-        """MAKE IT COUNT
-
-        PLAY IT STRAIGHT
-        DON'T LOOK BACK
-
-        - `DON'T HESITATE`
-        WHEN YOU GO BIG TIME"""
-        await ctx.send(files=[discord.File("assets/bigtimerush.mp3")])
 
     @commands.command()
     async def install(self, ctx):
@@ -636,9 +633,6 @@ class Basic(Cog):
     async def hostserver(self, ctx):
         """Gives you a link to the bot's support server.
 
-        This is the same even if it's self hosted. Sorry!
-        This is what I get for not learning to code!
-
         No arguments."""
         await ctx.author.send(
             content="Here is an invite to my host server.\nhttps://discord.gg/"
@@ -661,7 +655,7 @@ class Basic(Cog):
 
     @commands.command()
     async def help(self, ctx, *, command=None):
-        """This is Sangou's help command.
+        """This is The World Machine's help command.
 
         Giving a `command` will show that command's help.
         Running this command by itself shows a link to the documentation.
@@ -670,7 +664,7 @@ class Basic(Cog):
         The command to get help on. Optional."""
         if not command:
             return await ctx.reply(
-                "For how to use my services, please see my documentation:\nhttps://3gou.0ccu.lt/.",
+                "Sorry! This command isn't available yet!",
                 mention_author=False,
             )
         else:
@@ -686,7 +680,7 @@ class Basic(Cog):
             segments = botcommand.help.split("\n\n")
             if len(segments) != 3:
                 return await ctx.reply(
-                    "This command isn't configured properly yet.\nPlease look at the documentation, and yell at Ren to fix it.",
+                    "This command isn't configured properly yet.\nPlease look at the documentation, and yell at Rain to fix it.",
                     mention_author=False,
                 )
             embed.description = f"**{segments[0]}**\n>>> {segments[1]}"

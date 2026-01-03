@@ -47,7 +47,7 @@ class Reply(Cog):
             profile = fill_profile(reference_author.id)
             if profile["replypref"] != "pleasereplyping":
                 return
-            await message.add_reaction("🏓")
+            await message.add_reaction("<:pleasereply:1456772462347026432>")
             pokemsg = await message.reply(content=reference_author.mention)
             await self.bot.await_message(message.channel, reference_author, 86400)
             return await pokemsg.delete()
@@ -152,7 +152,7 @@ class Reply(Cog):
 
             # If reply pinged at all
             if profile["replypref"] == "noreplyping":
-                await message.add_reaction("❌")
+                await message.add_reaction("<:noreply:1456772437302579505>")
                 await violation()
                 return
             # If reply pinged in a window of time
@@ -167,7 +167,7 @@ class Reply(Cog):
                     <= self.timers[message.guild.id][reference_author.id]
                 ):
                     await message.add_reaction(
-                        "⏳"
+                        "<:waitreply:1456772492906598563>"
                     )
                     await violation()
                 return
@@ -209,7 +209,7 @@ class Reply(Cog):
         No arguments."""
         profile = fill_profile(ctx.author.id)
         embed = stock_embed(self.bot)
-        embed.title = "🏓 Your reply preference..."
+        embed.title = "<:pleasereply:1456772462347026432> Your reply preference..."
         embed.color = discord.Color.red()
         author_embed(embed, ctx.author)
         allowed_mentions = discord.AllowedMentions(replied_user=False)
@@ -224,7 +224,7 @@ class Reply(Cog):
 
             pleaseping = "🔘" if profile["replypref"] == "pleasereplyping" else "⚫"
             embed.add_field(
-                name="🏓 Please Reply Ping",
+                name="<:pleasereply:1456772462347026432> Please Reply Ping",
                 value=pleaseping
                 + " Indicates that you would like to be pinged in replies.",
                 inline=False,
@@ -234,7 +234,7 @@ class Reply(Cog):
                 "🔘" if profile["replypref"] == "waitbeforereplyping" else "⚫"
             )
             embed.add_field(
-                name="⏳ Wait Before Reply Ping",
+                name="<:waitreply:1456772492906598563> Wait Before Reply Ping",
                 value=waitbeforeping
                 + " Indicates that you would only like to be pinged after some time has passed.",
                 inline=False,
@@ -242,7 +242,7 @@ class Reply(Cog):
 
             noping = "🔘" if profile["replypref"] == "noreplyping" else "⚫"
             embed.add_field(
-                name="❌ No Reply Ping",
+                name="<:noreply:1456772437302579505> No Reply Ping",
                 value=noping
                 + " Indicates that you do not wish to be reply pinged whatsoever.",
                 inline=False,
@@ -252,9 +252,9 @@ class Reply(Cog):
 
         reacts = [
             "🤷",
-            "🏓",
-            "⏳",
-            "❌",
+            "<:pleasereply:1456772462347026432>",
+            "<:waitreply:1456772492906598563>",
+            "<:noreply:1456772437302579505>",
         ]
         configmsg = await ctx.reply(embed=embed, mention_author=False)
         for react in reacts:

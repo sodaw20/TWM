@@ -435,8 +435,8 @@ class Messagescan(Cog):
                 mention_author=False,
             )
 
-        reacts = ["🚫" if not dloutput else "<:deepl:1177134874021347378>"] + [
-            "🚫" if not gtoutput else "<:googletrans:1177134340778500146>"
+        reacts = ["🚫" if not dloutput else "<:dpl:1456765954171207822>"] + [
+            "🚫" if not gtoutput else "<:gt:1456765780921290813>"
         ]
         state = 0 if dloutput else 1
 
@@ -485,19 +485,19 @@ class Messagescan(Cog):
                 for react in reacts:
                     await holder.remove_reaction(react, self.bot.user)
                 return
-            if str(reaction) == "<:deepl:1177134874021347378>":
+            if str(reaction) == "<:dpl:1456765954171207822>":
                 if state != 0:
                     state = 0
                 try:
-                    await holder.remove_reaction("<:deepl:1177134874021347378>", user)
+                    await holder.remove_reaction("<:dpl:1456765954171207822>", user)
                 except:
                     pass
-            elif str(reaction) == "<:googletrans:1177134340778500146>":
+            elif str(reaction) == "<:gt:1456765780921290813>":
                 if state != 1:
                     state = 1
                 try:
                     await holder.remove_reaction(
-                        "<:googletrans:1177134340778500146>", user
+                        "<:gt:1456765780921290813>", user
                     )
                 except:
                     pass

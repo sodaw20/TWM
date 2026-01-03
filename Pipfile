@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 aiohttp = "*"
-"discord.py" = "==2.3.*"
 gidgethub = "*"
 httplib2 = "*"
 matplotlib = "*"
@@ -29,6 +28,8 @@ yt-dlp = {file = "https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz"}
 youtube-dlc = "*"
 ffmpeg = "*"
 youtube-dl = "*"
+discord = "*"
+"discord.py" = "*"
 
 [dev-packages]
 
