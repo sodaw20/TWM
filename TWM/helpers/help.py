@@ -1,6 +1,6 @@
 import discord
 
-async def get_help(ctx, bot):
+async def get_help(bot):
     cogs_list = bot.cogs.keys()
     sorted_cogs_list = sorted(cogs_list, key=str.lower)
     for n in sorted_cogs_list:

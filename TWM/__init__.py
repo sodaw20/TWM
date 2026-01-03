@@ -23,7 +23,7 @@ log_format = logging.Formatter(
 )
 stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setFormatter(log_format)
-logfile_handler = logging.FileHandler("logs/sangou.log", mode="w")
+logfile_handler = logging.FileHandler("logs/worldmachine.log", mode="w")
 logfile_handler.setFormatter(log_format)
 log = logging.getLogger("discord")
 log.setLevel(logging.INFO)
@@ -75,7 +75,7 @@ bot.help_command = None
 bot.log = log
 bot.config = config
 bot.errors = []
-bot.version = "0.3.2"
+bot.version = config.version
 
 
 @bot.event
@@ -173,8 +173,8 @@ async def on_command_error(ctx, error):
         log.error(f"Code error in command {ctx.command}...\n{err_tb}")
         return await ctx.send(
             "This command broke!"
-            + f"\nPaging {ctx.guild.get_member(120698901236809728).mention}!"
-            if ctx.guild and ctx.guild.get_member(120698901236809728)
+            + f"\n{ctx.guild.get_member(1040438267859976262).mention} I NEED HELP!!"
+            if ctx.guild and ctx.guild.get_member(1040438267859976262)
             else "\nSorry! Somthing went wrong. I'll tell Rain for you!"
         )
     elif isinstance(error, commands.NoPrivateMessage):
