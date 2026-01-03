@@ -657,7 +657,7 @@ class Basic(Cog):
                 cogs_list = "\n".join(self.bot.cogs.keys())
                 await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
                 await ctx.author.send("Here is a list of cogs:")
-                await ctx.send(cogs_list)
+                await ctx.author.send(cogs_list)
                 return await ctx.reply(
                     content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
@@ -666,7 +666,7 @@ class Basic(Cog):
                 cogs_list = "\n".join(self.bot.cogs.keys())
                 await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
                 await ctx.author.send("Here is a list of cogs:")
-                await ctx.send(cogs_list)
+                await ctx.author.send(cogs_list)
             
         else:
             botcommand = self.bot.get_command(command)
