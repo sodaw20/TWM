@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://3gou.0ccu.lt"><picture><img width="150px" src="https://raw.githubusercontent.com/vrnavi/sangou/master/sangou/assets/sangou.png"></picture></a>
+    <a href="about:blank"><picture><img width="150px" src="https://raw.githubusercontent.com/ziolkoplayscode/TWM/master/TWM/assets/en.png"></picture></a>
 </p>
 <p align="center"><i>The World Machine (TWM)</i></p>
 
