@@ -73,10 +73,6 @@ class Basic(Cog):
         The unit of the temperature you want to convert.
         - `convert`
         The unit you want to convert to. Optional."""
-        # This code is garbage.
-        # I wrote it at 2 in the morning.
-        # I am not sorry.
-        # Please leave a comment saying "Ren sucks" if you choose to make this any better.
         if convert:
             out = round(self.bot.convert_temperature(temp, unit, convert), 2)
             return await ctx.reply(
@@ -635,7 +631,7 @@ class Basic(Cog):
         No arguments."""
         invite = config.invite
         await ctx.author.send(
-            content="Here is an invite to my host server.\n{invite}"
+            content=f"Here is an invite to my host server.\n{invite}"
         )
         if ctx.guild:
             await ctx.reply(
@@ -653,11 +649,14 @@ class Basic(Cog):
         - `command`
         The command to get help on. Optional."""
         if not command:
-            await ctx.author.send("meow")
-            return await ctx.reply(
-                "As to not fill the chat with random commands, I have DM'd the commands to you.",
-                mention_author=False,
-            )
+            if ctx.guild:
+                await ctx.author.send("meow")
+                return await ctx.reply(
+                    content="As to not be rude, I have DMed the server link to you.",
+                    mention_author=False,
+                )
+            else:
+                return await ctx.author.send("meow")
             
         else:
             botcommand = self.bot.get_command(command)

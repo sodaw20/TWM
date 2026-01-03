@@ -85,7 +85,7 @@ class Analytics(Cog):
     async def disable(self, ctx):
         """This disables analytics collection.
 
-        Please see the [privacy notice](https://3gou.0ccu.lt/introduction/privacy-notice/).
+        Please see the [privacy notice](about:blank) (Nothing here tell Rain to fix once they hav domain).
         It will delete your analytics data as well.
 
         No arguments."""
