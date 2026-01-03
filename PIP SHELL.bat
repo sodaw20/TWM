@@ -1,2 +1,1 @@
-call pipenv shell
-start
+call pipenv shell && cd twm && python __init__.py
