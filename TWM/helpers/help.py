@@ -11,7 +11,8 @@ def get_help(bot):
     return cogs_message
 
 def get_commands(bot, cog):
-    command_list = cog.get_commands()()
+    command_list = [c.name for c in cog.get_commands()]
     sorted_command_list = sorted(command_list, key=str.lower)
     command_message = "\n".join(sorted_command_list)
     return command_message
+
