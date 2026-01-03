@@ -16,7 +16,7 @@ from discord.ext.commands import Cog
 from helpers.embeds import stock_embed, author_embed
 from helpers.datafiles import fill_profile
 from helpers.placeholders import random_msg
-from helpers.help import get_help
+from helpers.help import get_help, get_commands
 from zoneinfo import ZoneInfo, available_timezones
 import aiohttp
 import re as ren
@@ -1108,13 +1108,12 @@ class Basic(Cog):
         # At least it doesn't require a website that shuts down when someone makes the bot's repository private..
         cog = self.bot.get_cog(ext)
         if cog:
-            commands = cog.get_commands()
+            commands = get_commands(self.bot, cog)
             if commands:
-                commandlist = [c.name for c in commands]
                 if ctx.guild:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
                     await ctx.author.send(f"List of commands in {ext}:")
-                    await ctx.author.send("\n".join(commandlist))
+                    await ctx.author.send("\n".join(commands))
                     return await ctx.reply(
                         content="As to not be rude, I have DMed the cog info to you.",
                         mention_author=False,
@@ -1122,7 +1121,7 @@ class Basic(Cog):
                 else:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
                     await ctx.author.send(f"List of commands in {ext}:")
-                    await ctx.author.send("\n".join(commandlist))
+                    await ctx.author.send("\n".join(commands))
             else:
                 await ctx.send("That cog has no commands!")
         else:
