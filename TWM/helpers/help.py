@@ -13,11 +13,10 @@ def get_help(bot):
 def get_commands(bot, cog):
     command_list = [c.name for c in cog.get_commands()]
     sorted_command_list = sorted(command_list, key=str.lower)
-    command_message = "\n".join(sorted_command_list)
     filtered_command_list = []
-
     for n in sorted_command_list:
         segments = bot.get_command(n).help.split("\n\n")
         filtered_command_list.append(n + segments[0])
+    command_message = "\n".join(filtered_command_list) 
     return command_message
 
