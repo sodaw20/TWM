@@ -8,7 +8,10 @@ def get_help(bot, tf):
         if bot.get_cog(n).get_commands() or tf:
             segments = bot.get_cog(n).__doc__
             if segments:
-                filtered_cogs_list.append(n + " - " + segments)
+                if bot.get_cog(n).get_commands():
+                    filtered_cogs_list.append(n + " - " + segments)
+                else:
+                    filtered_cogs_list.append(n + " - " + segments + " - NO COMMANDS")
             else:
                 filtered_cogs_list.append(n)
     cogs_message = "\n".join(filtered_cogs_list)
