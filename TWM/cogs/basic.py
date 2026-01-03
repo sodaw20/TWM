@@ -654,7 +654,10 @@ class Basic(Cog):
         The command to get help on. Optional."""
         if not command:
             if ctx.guild:
-                await ctx.author.send("")
+                cogs_list = "\n".join(self.bot.cogs.keys())
+                await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
+                await ctx.author.send("Here is a list of cogs:")
+                await ctx.send(cogs_list)
                 return await ctx.reply(
                     content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
@@ -1102,16 +1105,19 @@ class Basic(Cog):
 
         - `ext`
         What cog to get commands of."""
+        cog = self.bot.get_cog(ext)
+        commands = cog.get_commands()
+        commandlist = [c.name for c in commands]
+        seperator= '\n'
         if ctx.guild:
-                return await ctx.reply(
-                    content="As to not be rude, I have DMed the cog info to you.",
-                    mention_author=False,
-                )
+            await ctx.author.send("Run `pls help [command]` to see what a command does.")
+            await ctx.author.send(f"List of commands in {cog}")
+            await ctx.author.send(seperator.join(commandlist))
+            return await ctx.reply(
+                content="As to not be rude, I have DMed the cog info to you.",
+                mention_author=False,
+            )
         else:
-            cog = self.bot.get_cog(ext)
-            commands = cog.get_commands()
-            commandlist = [c.name for c in commands]
-            seperator= '\n'
             await ctx.author.send("Run `pls help [command]` to see what a command does.")
             await ctx.author.send(f"List of commands in {cog}")
             await ctx.author.send(seperator.join(commandlist))
