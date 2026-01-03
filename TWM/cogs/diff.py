@@ -7,6 +7,7 @@ from discord.ext.commands import Cog
 
 
 class Diff(Cog):
+    """I *CANNOT* remember what this does."""
     @commands.command()
     async def diff(self, ctx: commands.Context, old: str = None, new: str = None):
         is_file = False

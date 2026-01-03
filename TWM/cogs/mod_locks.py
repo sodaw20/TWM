@@ -6,6 +6,7 @@ from helpers.sv_config import get_config
 
 
 class ModLocks(Cog):
+    """Prevent people from typing in a channel."""
     def __init__(self, bot):
         self.bot = bot
         self.snapshots = {}

@@ -10,6 +10,7 @@ from helpers.embeds import stock_embed, createdat_embed, joinedat_embed
 
 
 class ModWatch(Cog):
+    "Watch your problematic users."
     def __init__(self, bot):
         self.bot = bot
         self.nocfgmsg = "Watching isn't set up for this server."

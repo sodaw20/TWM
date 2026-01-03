@@ -10,10 +10,8 @@ from helpers.embeds import stock_embed
 
 
 class AvyDecorations(Cog):
+    """Laughs at you if you have profile effects."""
     def __init__(self, bot: commands.Bot):
-        """
-        Laughs at you if you have profile effects.
-        """
         self.bot = bot
 
     async def profile_check(self, payload: Dict):

@@ -17,6 +17,7 @@ import re
 
 
 class Mod(Cog):
+    """General mod stuff."""
     def __init__(self, bot):
         self.bot = bot
         self.bot.check_if_target_is_staff = self.check_if_target_is_staff

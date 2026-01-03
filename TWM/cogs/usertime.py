@@ -8,6 +8,7 @@ from helpers.datafiles import fill_profile, set_userfile
 
 
 class usertime(Cog):
+    """The concept of time lies here."""
     def __init__(self, bot):
         self.bot = bot
 

@@ -11,6 +11,7 @@ from helpers.placeholders import random_msg
 
 
 class ModReport(Cog):
+    """\"The body was in medical!\""""
     def __init__(self, bot):
         self.bot = bot
         self.cleaner.start()

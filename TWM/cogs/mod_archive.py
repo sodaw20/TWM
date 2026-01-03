@@ -17,6 +17,7 @@ from helpers.embeds import stock_embed, author_embed
 
 
 class ModArchives(Cog):
+    """View user archives."""
     def __init__(self, bot):
         self.bot = bot
 

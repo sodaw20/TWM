@@ -8,6 +8,7 @@ from helpers.embeds import stock_embed
 
 
 class OneShot(Cog):
+    """Commands originaly made by Ren for the OneShot Discord Server."""
     def __init__(self, bot):
         self.bot = bot
 

@@ -25,6 +25,7 @@ import json
 
 
 class Basic(Cog):
+    """Misc stuff used for everyday things."""
     def __init__(self, bot):
         self.bot = bot
         matplotlib.use("agg")

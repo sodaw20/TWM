@@ -14,6 +14,7 @@ from helpers.placeholders import game_type, game_names
 
 
 class Timer(Cog):
+    """tick tock."""
     def __init__(self, bot):
         self.bot = bot
         self.minutely.start()

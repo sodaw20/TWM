@@ -13,6 +13,7 @@ from helpers.sv_config import fill_config, make_config, set_raw_config, validate
 
 
 class sv_config(Cog):
+    """START HERE!!!"""
     def __init__(self, bot):
         self.bot = bot
 
@@ -23,7 +24,7 @@ class sv_config(Cog):
     async def configs(self, ctx):
         """This gets the configuration for your server.
 
-        Please see the [documentation](https://3gou.0ccu.lt/as-an-administrator/server-configuration/) for more information.
+        Please see the [documentation](about:blank) for more information.
 
         No arguments."""
         if not os.path.exists(f"data/servers/{ctx.guild.id}/config.yml"):
