@@ -7,8 +7,10 @@ managers = []
 # The ID of the channel the bot will log things to.
 # This will be removed soonTM.
 logchannel = 
-# Info for last update
+# Info for last update.
 updateinfo = "Initial commit"
+# Version for the bot.
+version = "0.0.0"
 # Discord server invite link
 invite = "https://discord.gg/xxxxxxxx"
 

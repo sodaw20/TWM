@@ -6,7 +6,6 @@ import asyncio
 import matplotlib
 import matplotlib.pyplot as plt
 import typing
-import config
 import random
 import platform
 import hashlib
@@ -608,6 +607,11 @@ class Basic(Cog):
         )
         embed.set_thumbnail(url=self.bot.user.display_avatar.url)
         embed.add_field(
+            name= f"💾 Version",
+            value=f"Version is {self.bot.config.version}\nLatest update: {self.bot.config.updateinfo}",
+            inline=True,
+        )
+        embed.add_field(
             name=f"📊 Usage",
             value=f"**Guilds:** {len(self.bot.guilds)}\n**Users:** {len(self.bot.users)}",
             inline=True,
@@ -629,7 +633,7 @@ class Basic(Cog):
         """Gives you a link to the bot's support server.
 
         No arguments."""
-        invite = config.invite
+        invite = self.bot.config.invite
         await ctx.author.send(
             content=f"Here is an invite to my host server.\n{invite}"
         )
