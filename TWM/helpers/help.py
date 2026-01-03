@@ -16,7 +16,7 @@ def get_commands(bot, cog):
     filtered_command_list = []
     for n in sorted_command_list:
         segments = bot.get_command(n).help.split("\n\n")
-        filtered_command_list.append(n + segments[0])
+        filtered_command_list.append(n + " - " + segments[0])
     command_message = "\n".join(filtered_command_list) 
     return command_message
 
