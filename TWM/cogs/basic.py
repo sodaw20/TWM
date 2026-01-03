@@ -632,18 +632,9 @@ class Basic(Cog):
         """Gives you a link to the bot's support server.
 
         No arguments."""
+        invite = config.invite
         await ctx.author.send(
-            content="Here is an invite to my host server.\nhttps://discord.gg/"
-            + "Z"
-            + "C"
-            + "9"
-            + "G"
-            + "V"
-            + "X"
-            + "X"
-            + "H"
-            + "7"
-            + "v"
+            content="Here is an invite to my host server.\n{invite}"
         )
         if ctx.guild:
             await ctx.reply(
@@ -661,10 +652,12 @@ class Basic(Cog):
         - `command`
         The command to get help on. Optional."""
         if not command:
+            await ctx.author.send("meow")
             return await ctx.reply(
-                "Sorry! This command isn't available yet!",
+                "As to not fill the chat with random commands, I have DM'd the commands to you.",
                 mention_author=False,
             )
+            
         else:
             botcommand = self.bot.get_command(command)
             if not botcommand:
