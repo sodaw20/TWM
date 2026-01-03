@@ -10,8 +10,9 @@ import re
 import youtube_dlc
 
 FFMPEG_OPTIONS = {
-    'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
-
+    "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+    "options": "-vn",
+}
 
 
 class Voice(Cog):
@@ -49,8 +50,6 @@ class Voice(Cog):
 
         await ctx.send(f"Joined **{channel}**")
 
-
-        
     @commands.command()
     async def leave(self, ctx):
         """This leave your VC channel.
@@ -97,19 +96,18 @@ class Voice(Cog):
         session = ctx.guild.voice_client
 
         # Searches for the video
-        with yt_dlp.YoutubeDL({'format': 'bestaudio', 'noplaylist': 'True'}) as ydl:
+        with yt_dlp.YoutubeDL({"format": "bestaudio", "noplaylist": "True"}) as ydl:
             try:
                 requests.get(arg)
             except Exception as e:
                 print(e)
-                info = ydl.extract_info(f"ytsearch:{arg}", download=False)[
-                    'entries'][0]
+                info = ydl.extract_info(f"ytsearch:{arg}", download=False)["entries"][0]
             else:
                 info = ydl.extract_info(arg, download=False)
 
-        url = info['formats'][0]['url']
-        thumb = info['thumbnails'][0]['url']
-        title = info['title']
+        url = info["formats"][0]["url"]
+        thumb = info["thumbnails"][0]["url"]
+        title = info["title"]
 
         # Finds an available voice client for the bot.
         voice = ctx.guild.voice_client
@@ -117,16 +115,12 @@ class Voice(Cog):
             await voice_channel.connect()
             voice = ctx.guild.voice_client
 
-
         await ctx.send(thumb)
         await ctx.send(f"Playing {title}")
-
 
         source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
         voice.play(source, after=None)
 
 
-
 async def setup(bot):
     await bot.add_cog(Voice(bot))
-    

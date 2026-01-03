@@ -68,9 +68,7 @@ class Messagespam(Cog):
         #   whitelist: <chan_id>
         if (
             len(self.channelspam[message.guild.id][message.channel.id]["senders"]) >= 5
-        ) and (
-            message.channel.id != get_config(message.guild.id, "toss", "whitelist")
-        ):
+        ) and (message.channel.id != get_config(message.guild.id, "toss", "whitelist")):
             await message.channel.purge(
                 limit=len(
                     self.channelspam[message.guild.id][message.channel.id]["senders"]

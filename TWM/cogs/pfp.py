@@ -11,6 +11,7 @@ from helpers.checks import ismod
 from helpers.checks import ismanager
 from helpers.sv_config import get_config
 
+
 class Pfp(Cog):
     """
     Dynamic pfp system.
@@ -25,22 +26,23 @@ class Pfp(Cog):
     def cog_unload(self):
         self.pfptimer.cancel()
 
-
     @commands.check(ismanager)
     @commands.command()
     async def rerollpfp(self, ctx):
         """This forcibly rerolls the PFP.
 
         No arguments."""
-        new_avatar=open(
-            self.images + "/" + random.choice(
+        new_avatar = open(
+            self.images
+            + "/"
+            + random.choice(
                 [
                     f
                     for f in os.listdir(self.images)
                     if os.path.isfile(os.path.join(self.images, f))
                 ]
-            ),       
-            "rb"
+            ),
+            "rb",
         )
         await self.bot.user.edit(avatar=new_avatar.read())
         await ctx.send(content="PFP reloaded!")
@@ -49,17 +51,20 @@ class Pfp(Cog):
     async def pfptimer(self):
         await self.bot.wait_until_ready()
         if int(datetime.datetime.now().strftime("%H%M")) == 0000:
-            new_avatar=open(
-                self.images + "/" + random.choice(
+            new_avatar = open(
+                self.images
+                + "/"
+                + random.choice(
                     [
                         f
                         for f in os.listdir(self.images)
                         if os.path.isfile(os.path.join(self.images, f))
                     ]
-                ),       
-                "rb"
+                ),
+                "rb",
             )
             await self.bot.user.edit(avatar=new_avatar.read())
+
 
 async def setup(bot):
     await bot.add_cog(Pfp(bot))

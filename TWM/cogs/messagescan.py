@@ -496,9 +496,7 @@ class Messagescan(Cog):
                 if state != 1:
                     state = 1
                 try:
-                    await holder.remove_reaction(
-                        "<:gt:1456765780921290813>", user
-                    )
+                    await holder.remove_reaction("<:gt:1456765780921290813>", user)
                 except:
                     pass
             content()

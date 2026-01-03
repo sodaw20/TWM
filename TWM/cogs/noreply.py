@@ -166,9 +166,7 @@ class Reply(Cog):
                     int(message.created_at.timestamp()) - 30
                     <= self.timers[message.guild.id][reference_author.id]
                 ):
-                    await message.add_reaction(
-                        "<:waitreply:1456772492906598563>"
-                    )
+                    await message.add_reaction("<:waitreply:1456772492906598563>")
                     await violation()
                 return
 

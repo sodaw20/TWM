@@ -38,9 +38,7 @@ class Basic(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        await ctx.send(
-            f"Hello {ctx.author.display_name}!"
-        )
+        await ctx.send(f"Hello {ctx.author.display_name}!")
 
     @commands.command(aliases=["whatsmyip", "myip"])
     async def whatismyip(self, ctx):
@@ -415,8 +413,8 @@ class Basic(Cog):
 
     @commands.command()
     async def sacrifice(self, ctx, *, someone: str):
-        """This sacrifices someone. 
-        
+        """This sacrifices someone.
+
         No, we are not a cult.
 
         - `someone`

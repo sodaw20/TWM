@@ -540,5 +540,6 @@ class Random(Cog):
             mention_author=False,
         )
 
+
 async def setup(bot):
     await bot.add_cog(Random(bot))
