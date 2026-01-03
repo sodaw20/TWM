@@ -1094,7 +1094,7 @@ class Basic(Cog):
 
         await ctx.reply(embed=embed, mention_author=False)
 
-    @commands.command
+    @commands.command()
     async def getcommands(self, ctx, *, ext: str):
         """This gets all commands in a cog.
 
