@@ -6,7 +6,7 @@ def get_help(bot):
     filtered_cogs_list = []
     for n in sorted_cogs_list:
         if bot.get_cog(n).get_commands():
-            segments = n.__doc__
+            segments = bot.get_cog(n).__doc__
             if segments:
                 filtered_cogs_list.append(n + " - " + segments)
             else:
