@@ -1105,7 +1105,7 @@ class Basic(Cog):
         """
         cog = self.bot.get_cog(ext)
         commands = cog.get_commands()
-        print([c.name for c in commands])
+        await ctx.send([c.name for c in commands])
 
 
 async def setup(bot):
