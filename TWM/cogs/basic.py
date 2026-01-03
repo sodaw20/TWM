@@ -1113,7 +1113,7 @@ class Basic(Cog):
                 if ctx.guild:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
                     await ctx.author.send(f"List of commands in {ext}:")
-                    await ctx.author.send("\n".join(commands))
+                    await ctx.author.send(commands)
                     return await ctx.reply(
                         content="As to not be rude, I have DMed the cog info to you.",
                         mention_author=False,
@@ -1121,7 +1121,7 @@ class Basic(Cog):
                 else:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
                     await ctx.author.send(f"List of commands in {ext}:")
-                    await ctx.author.send("\n".join(commands))
+                    await ctx.author.send(commands)
             else:
                 await ctx.send("That cog has no commands!")
         else:
