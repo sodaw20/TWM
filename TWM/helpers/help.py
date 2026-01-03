@@ -6,7 +6,11 @@ def get_help(bot):
     filtered_cogs_list = []
     for n in sorted_cogs_list:
         if bot.get_cog(n).get_commands():
-            filtered_cogs_list.append(n)
+            segments = n.__doc__
+            if segments:
+                filtered_cogs_list.append(n + " - " + segments)
+            else:
+                filtered_cogs_list.append(n)
     cogs_message = "\n".join(filtered_cogs_list)
     return cogs_message
 

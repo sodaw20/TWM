@@ -8,11 +8,11 @@ from helpers.embeds import stock_embed
 
 
 class CogBurstReacts(commands.Cog, name="Burst reactions handler"):
-    def __init__(self, bot: commands.Bot):
-        """
+    """
         Discord Super Reactions autoremover.
-        By hat_kid (https://github.com/thehatkid)
-        """
+    """
+    
+    def __init__(self, bot: commands.Bot):
         self.bot = bot
 
     async def burst_reaction_check(self, payload: Dict):

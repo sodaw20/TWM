@@ -9,14 +9,14 @@ import urllib.request
 import re
 import youtube_dlc
 
-FFMPEG_OPTIONS = {
-    "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
-    "options": "-vn",
-}
 
 
 class Voice(Cog):
     def __init__(self, bot):
+        FFMPEG_OPTIONS = {
+        "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+        "options": "-vn",
+        }
         self.bot = bot
 
     @commands.command()
