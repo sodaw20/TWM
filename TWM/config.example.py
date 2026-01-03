@@ -6,7 +6,7 @@ prefixes = ["pls ", "twm ", ">"]
 managers = []
 # The ID of the channel the bot will log things to.
 # This will be removed soonTM.
-logchannel = 
+logchannel = 0
 # Info for last update.
 updateinfo = "Initial commit"
 # Version for the bot.
@@ -25,9 +25,9 @@ long_desc = (
 )
 
 # [cogs.basic/google] CSE (Custom Search Engine) ID
-cseid = None # Example: ""
+cseid = None # Example: "token_goes_here"
 # [cogs.basic/google] API Key
-google_key = None # Example: ""
+google_key = None # Example: "token_goes_here"
 # [cogs.shortcuts/prefixes] Maximum prefixes allowed.
 # This setting will cap at 25 prefixes regardless.
 maxprefixes = 6
@@ -39,4 +39,4 @@ maxaliases = 6
 deepl_key = None  # Example: "token_goes_here"
 # [cogs.basic/catbox] Catbox Account Key.
 # Will default to anonymous upload if not supplied.
-catbox_key = None  # Example: ""
+catbox_key = None  # Example: "token_goes_here"
