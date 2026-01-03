@@ -644,7 +644,7 @@ class Basic(Cog):
         """This is The World Machine's help command.
 
         Giving a `command` will show that command's help.
-        Running this command by itself shows a link to the documentation.
+        Running this command by itself shows a list of cogs.
 
         - `command`
         The command to get help on. Optional."""
@@ -656,14 +656,10 @@ class Basic(Cog):
                     mention_author=False,
                 )
             else:
-                await ctx.author.send("Send `pls getcommands [Cog name] to see a list of commands in that cog.")
+                cogs_list = "\n".join(self.bot.cogs.keys())
+                await ctx.author.send("Send `pls getcommands (Cog name) to see a list of commands in that cog.")
                 await ctx.author.send("Here is a list of cogs.")
-                for cog in [
-                    "cogs." + f[:-3]
-                    for f in os.listdir("cogs/")
-                    if os.path.isfile("cogs/" + f) and f[-3:] == ".py"
-                    ]:
-                    await ctx.author.send(cog)
+                await ctx.send(cogs_list)
             
         else:
             botcommand = self.bot.get_command(command)
@@ -1104,6 +1100,7 @@ class Basic(Cog):
         What cog to get commands of."""
         cog = self.bot.get_cog(ext)
         commands = cog.get_commands()
+        await ctx.send("Run `pls help [command]` to see what a command does.")
         await ctx.send([c.name for c in commands])
 
 
