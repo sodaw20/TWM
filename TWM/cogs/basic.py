@@ -655,7 +655,7 @@ class Basic(Cog):
         - `command`
         The command to get help on. Optional. Type True to see all cogs."""
         if not(command) or (command == "True"):
-            if command == True:
+            if command == "True":
                 cogs = get_help(self.bot, True)
             else:
                 cogs = get_help(self.bot, False)
