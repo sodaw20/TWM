@@ -653,9 +653,12 @@ class Basic(Cog):
         Running this command by itself shows a list of cogs.
 
         - `command`
-        The command to get help on. Optional."""
-        if not command:
-            cogs = get_help(self.bot)
+        The command to get help on. Optional. Type True to see all cogs."""
+        if not command or command == True:
+            if command == True:
+                cogs = get_help(self.bot, True)
+            else:
+                cogs = get_help(self.bot, False)
             await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
             await ctx.author.send("Here is a list of cogs:")
             
@@ -1102,16 +1105,14 @@ class Basic(Cog):
         Run `pls help` to get a list of cogs.
 
         - `ext`
-        What cog to get commands of. Case-sensitive.
-        - `more`
-        Whether to show cogs without commands or not. True/False. Optional."""
+        What cog to get commands of. Case-sensitive."""
         # There's probably a better way to do this.
         # I dont care.
         # Fix it if you want, I made this at 2 AM
         # At least it doesn't require a website that shuts down when someone makes the bot's repository private..
         cog = self.bot.get_cog(ext)
         if cog:
-            commands = get_commands(self.bot, cog, more)
+            commands = get_commands(self.bot, cog)
             if commands:
                 if ctx.guild:
                     await ctx.author.send("Run `pls help [command]` to see what a command does.")
