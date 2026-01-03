@@ -650,13 +650,20 @@ class Basic(Cog):
         The command to get help on. Optional."""
         if not command:
             if ctx.guild:
-                await ctx.author.send("meow")
+                await ctx.author.send("")
                 return await ctx.reply(
-                    content="As to not be rude, I have DMed the server link to you.",
+                    content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
                 )
             else:
-                return await ctx.author.send("meow")
+                await ctx.author.send("Send `pls getcommands [Cog name] to see a list of commands in that cog.")
+                await ctx.author.send("Here is a list of cogs.")
+                for cog in [
+                    "cogs." + f[:-3]
+                    for f in os.listdir("cogs/")
+                    if os.path.isfile("cogs/" + f) and f[-3:] == ".py"
+                    ]:
+                    await ctx.author.send(cog)
             
         else:
             botcommand = self.bot.get_command(command)
@@ -1086,6 +1093,19 @@ class Basic(Cog):
             embed.set_image(url=server.banner.url)
 
         await ctx.reply(embed=embed, mention_author=False)
+
+    @commands.command
+    async def getcommands(self, ctx, *, ext: str):
+        """This gets all commands in a cog.
+
+        Run `pls help` to get a list of cogs.
+
+        - `ext`
+        What cog to get commands of. 
+        """
+        cog = self.bot.get_cog(ext)
+        commands = cog.get_commands()
+        print([c.name for c in commands])
 
 
 async def setup(bot):
