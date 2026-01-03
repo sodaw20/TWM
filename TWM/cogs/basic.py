@@ -654,20 +654,14 @@ class Basic(Cog):
         - `command`
         The command to get help on. Optional."""
         if not command:
+            await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
+            await ctx.author.send("Here is a list of cogs:")
+            await ctx.author.send(get_help(ctx, self.bot))
             if ctx.guild:
-                cogs_list = "\n".join(self.bot.cogs.keys())
-                await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
-                await ctx.author.send("Here is a list of cogs:")
-                await get_help()
                 return await ctx.reply(
                     content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
                 )
-            else:
-                cogs_list = "\n".join(self.bot.cogs.keys())
-                await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
-                await ctx.author.send("Here is a list of cogs:")
-                await get_help()
             
         else:
             botcommand = self.bot.get_command(command)
