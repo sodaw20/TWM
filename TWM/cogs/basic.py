@@ -1101,8 +1101,7 @@ class Basic(Cog):
         Run `pls help` to get a list of cogs.
 
         - `ext`
-        What cog to get commands of. 
-        """
+        What cog to get commands of."""
         cog = self.bot.get_cog(ext)
         commands = cog.get_commands()
         await ctx.send([c.name for c in commands])
