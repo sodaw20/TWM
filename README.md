@@ -6,7 +6,7 @@
 <p align="center"><a href="https://github.com/ziolkoplayscode/TWM/releases/latest"><img alt="Stable Version" src="https://img.shields.io/badge/Stable-0.1.0-cyan?labelColor=black"></a> <a href="https://codeload.github.com/ziolkoplayscode/TWM/zip/refs/heads/master"><img alt="Nightly Version" src="https://img.shields.io/badge/Nightly-0.1.0-lightpink?labelColor=white"></a> <a href="https://github.com/ziolkoplayscode/TWM/commits/master/"><img alt="GitHub Activity" src="https://img.shields.io/github/commit-activity/w/ziolkoplayscode/TWM?logo=github&color=white&labelColor=black&label=Commits"></a> <a href="https://github.com/ziolkoplayscode/TWM/graphs/contributors"><img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/ziolkoplayscode/TWM?color=lightpink&labelColor=white&label=Contribs"></a> <a href="https://github.com/ziolkoplayscode/TWM/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/ziolkoplayscode/TWM?color=cyan&labelColor=black&label=License"></a></p>
 
 
-TWM is a fork of [sangou](https://github.com/vrnavy/sangou) with some tweaks.
+TWM is a fork of [sangou](https://github.com/vrnavi/sangou) with some tweaks.
 
 ---
 
