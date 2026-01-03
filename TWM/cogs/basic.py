@@ -1104,23 +1104,35 @@ class Basic(Cog):
         Run `pls help` to get a list of cogs.
 
         - `ext`
-        What cog to get commands of."""
-        cog = self.bot.get_cog(ext)
-        commands = cog.get_commands()
-        commandlist = [c.name for c in commands]
-        seperator= '\n'
-        if ctx.guild:
-            await ctx.author.send("Run `pls help [command]` to see what a command does.")
-            await ctx.author.send(f"List of commands in {cog}")
-            await ctx.author.send(seperator.join(commandlist))
-            return await ctx.reply(
-                content="As to not be rude, I have DMed the cog info to you.",
-                mention_author=False,
-            )
+        What cog to get commands of. Case-sensitive."""
+        # There's probably a better way to do this.
+        # I dont care.
+        # Fix it if you want, I made this at 2 AM
+        if ext:
+            cog = self.bot.get_cog(ext)
+            if cog:
+                commands = cog.get_commands()
+                if commands:
+                    commandlist = [c.name for c in commands]
+                    seperator= '\n'
+                    if ctx.guild:
+                        await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                        await ctx.author.send(f"List of commands in {cog}")
+                        await ctx.author.send(seperator.join(commandlist))
+                        return await ctx.reply(
+                            content="As to not be rude, I have DMed the cog info to you.",
+                            mention_author=False,
+                        )
+                    else:
+                        await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                        await ctx.author.send(f"List of commands in {cog}")
+                        await ctx.author.send(seperator.join(commandlist))
+                else:
+                    await ctx.send("That cog has no commands!")
+            else:
+                await ctx.send("Thats not a valid cog. Remember that cog names are case-sensitive!")
         else:
-            await ctx.author.send("Run `pls help [command]` to see what a command does.")
-            await ctx.author.send(f"List of commands in {cog}")
-            await ctx.author.send(seperator.join(commandlist))
+            await ctx.send("What cog do you want me to get the commands of?")
 
 
 async def setup(bot):
