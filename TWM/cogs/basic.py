@@ -272,57 +272,54 @@ class Basic(Cog):
         and at present it is unfinished.
 
         No arguments."""
-        try:
-            question = await self.bot.aiojson("https://opentdb.com/api.php?amount=1")
-            if question["response_code"] != 0:
-                return await ctx.reply(content="API error.", mention_author=False)
+        question = await self.bot.aiojson("https://opentdb.com/api.php?amount=1")
+        if question["response_code"] != 0:
+            return await ctx.reply(content="API error.", mention_author=False)
 
-            answericons = ["🇦", "🇧", "🇨", "🇩"]
-            answers = [question["results"][0]["correct_answer"]] + question["results"][
-                0
-            ]["incorrect_answers"]
-            random.shuffle(answers)
-            postpreamble = (
-                "⬛⬜⬛⬜ **TRIVIA** ⬛⬜⬛⬜\n"
-                + f"> `Category:` {question['results'][0]['category']}\n"
-                + f"> `Difficulty:` {question['results'][0]['difficulty'].title()}\n\n"
-                + f"💬 {html.unescape(question['results'][0]['question'])}\n"
-            )
-            postanswers = "\n".join(
-                [
-                    answericons[idx] + " " + html.unescape(answer)
-                    for idx, answer in enumerate(answers)
-                ]
-            )
-            posttimer = f"\n\n⏱️ The timer runs out <t:{int(datetime.now().timestamp()) + 62}:R>!"
-            post = postpreamble + postanswers + posttimer
-            msg = await ctx.reply(content=post, mention_author=False)
+        answericons = ["🇦", "🇧", "🇨", "🇩"]
+        answers = [question["results"][0]["correct_answer"]] + question["results"][
+            0
+        ]["incorrect_answers"]
+        random.shuffle(answers)
+        postpreamble = (
+            "⬛⬜⬛⬜ **TRIVIA** ⬛⬜⬛⬜\n"
+            + f"> `Category:` {question['results'][0]['category']}\n"
+            + f"> `Difficulty:` {question['results'][0]['difficulty'].title()}\n\n"
+            + f"💬 {html.unescape(question['results'][0]['question'])}\n"
+        )
+        postanswers = "\n".join(
+            [
+                answericons[idx] + " " + html.unescape(answer)
+                for idx, answer in enumerate(answers)
+            ]
+        )
+        posttimer = f"\n\n⏱️ The timer runs out <t:{int(datetime.now().timestamp()) + 62}:R>!"
+        post = postpreamble + postanswers + posttimer
+        msg = await ctx.reply(content=post, mention_author=False)
 
-            for idx in range(len(answers)):
-                await msg.add_reaction(answericons[idx])
+        for idx in range(len(answers)):
+            await msg.add_reaction(answericons[idx])
 
-            await asyncio.sleep(60)
+        await asyncio.sleep(60)
 
-            postanswers = "\n".join(
-                [
-                    (
-                        "> " + answericons[idx] + " " + html.unescape(answer)
-                        if answer == question["results"][0]["correct_answer"]
-                        else answericons[idx] + " " + html.unescape(answer)
-                    )
-                    for idx, answer in enumerate(answers)
-                ]
-            )
-            posttimer = (
-                f"\n\n⏱️ The timer ran out <t:{int(datetime.now().timestamp())}:R>!"
-            )
-            post = postpreamble + postanswers + posttimer
-            allowed_mentions = discord.AllowedMentions(replied_user=False)
-            await msg.edit(content=post, allowed_mentions=allowed_mentions)
-            for user in msg.reactions[enumerate(answers)].user():
-                await msg.reply(user)
-        except:
-            await ctx.send("Unspecified error.")
+        postanswers = "\n".join(
+            [
+                (
+                    "> " + answericons[idx] + " " + html.unescape(answer)
+                    if answer == question["results"][0]["correct_answer"]
+                    else answericons[idx] + " " + html.unescape(answer)
+                )
+                for idx, answer in enumerate(answers)
+            ]
+        )
+        posttimer = (
+            f"\n\n⏱️ The timer ran out <t:{int(datetime.now().timestamp())}:R>!"
+        )
+        post = postpreamble + postanswers + posttimer
+        allowed_mentions = discord.AllowedMentions(replied_user=False)
+        await msg.edit(content=post, allowed_mentions=allowed_mentions)
+        for user in msg.reactions[enumerate(answers)].user():
+            await msg.reply(user)
 
     @commands.command()
     async def hug(self, ctx):
