@@ -22,7 +22,7 @@ def get_commands(bot, cog):
     sorted_command_list = sorted(command_list, key=str.lower)
     filtered_command_list = []
     for n in sorted_command_list:
-        if bot.get_command(n):
+        if bot.get_command(n).help:
             segments = bot.get_command(n).help.split("\n\n")
             filtered_command_list.append(n + " - " + segments[0])
         else:
