@@ -26,6 +26,7 @@ import json
 
 class Basic(Cog):
     """Misc stuff used for everyday things."""
+
     def __init__(self, bot):
         self.bot = bot
         matplotlib.use("agg")
@@ -609,7 +610,7 @@ class Basic(Cog):
         )
         embed.set_thumbnail(url=self.bot.user.display_avatar.url)
         embed.add_field(
-            name= f"💾 Version",
+            name=f"💾 Version",
             value=f"Version is {self.bot.config.version}\nLatest update: {self.bot.config.updateinfo}",
             inline=True,
         )
@@ -636,9 +637,7 @@ class Basic(Cog):
 
         No arguments."""
         invite = self.bot.config.invite
-        await ctx.author.send(
-            content=f"Here is an invite to my host server.\n{invite}"
-        )
+        await ctx.author.send(content=f"Here is an invite to my host server.\n{invite}")
         if ctx.guild:
             await ctx.reply(
                 content="As to not be rude, I have DMed the server link to you.",
@@ -654,21 +653,23 @@ class Basic(Cog):
 
         - `command`
         The command to get help on. Optional. Type True to see all cogs."""
-        if not(command) or (command == "True"):
+        if not (command) or (command == "True"):
             if command == "True":
                 cogs = get_help(self.bot, True)
             else:
                 cogs = get_help(self.bot, False)
-            await ctx.author.send("Send `pls commands (Cog name)` to see a list of commands in that cog.")
+            await ctx.author.send(
+                "Send `pls commands (Cog name)` to see a list of commands in that cog."
+            )
             await ctx.author.send("Here is a list of cogs:")
-            
+
             await ctx.author.send(f"{cogs}")
             if ctx.guild:
                 return await ctx.reply(
                     content="As to not be rude, I have DMed the help info to you.",
                     mention_author=False,
                 )
-            
+
         else:
             botcommand = self.bot.get_command(command)
             if not botcommand:
@@ -1099,7 +1100,7 @@ class Basic(Cog):
         await ctx.reply(embed=embed, mention_author=False)
 
     @commands.command(aliases=["getcommands"])
-    async def commands(self, ctx, ext: str, more = False):
+    async def commands(self, ctx, ext: str, more=False):
         """This gets all commands in a cog.
 
         Run `pls help` to get a list of cogs.
@@ -1115,7 +1116,9 @@ class Basic(Cog):
             commands = get_commands(self.bot, cog)
             if commands:
                 if ctx.guild:
-                    await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                    await ctx.author.send(
+                        "Run `pls help [command]` to see what a command does."
+                    )
                     await ctx.author.send(f"List of commands in {ext}:")
                     await ctx.author.send(commands)
                     return await ctx.reply(
@@ -1123,13 +1126,17 @@ class Basic(Cog):
                         mention_author=False,
                     )
                 else:
-                    await ctx.author.send("Run `pls help [command]` to see what a command does.")
+                    await ctx.author.send(
+                        "Run `pls help [command]` to see what a command does."
+                    )
                     await ctx.author.send(f"List of commands in {ext}:")
                     await ctx.author.send(commands)
             else:
                 await ctx.send("That cog has no commands!")
         else:
-            await ctx.send("Thats not a valid cog. Remember that cog names are case-sensitive!")
+            await ctx.send(
+                "Thats not a valid cog. Remember that cog names are case-sensitive!"
+            )
 
 
 async def setup(bot):

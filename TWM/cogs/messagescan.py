@@ -13,6 +13,7 @@ from helpers.sv_config import get_config
 
 class Messagescan(Cog):
     """Scans messages and reacts."""
+
     def __init__(self, bot):
         self.bot = bot
         self.link_re = re.compile(

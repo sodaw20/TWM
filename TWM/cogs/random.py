@@ -10,6 +10,7 @@ import json
 
 class Random(Cog):
     """Random OneShot sprites!"""
+
     def __init__(self, bot):
         self.bot = bot
 

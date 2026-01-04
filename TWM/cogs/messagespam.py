@@ -10,6 +10,7 @@ from helpers.sv_config import get_config
 
 class Messagespam(Cog):
     """Tosses people who spam."""
+
     def __init__(self, bot):
         self.bot = bot
         self.channelspam = {}

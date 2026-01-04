@@ -22,6 +22,7 @@ from helpers.placeholders import random_msg
 
 class Admin(Cog):
     """Commands for ONLY the bot manager. You will never use this."""
+
     def __init__(self, bot):
         self.bot = bot
         self.last_eval_result = None
