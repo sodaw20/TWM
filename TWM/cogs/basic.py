@@ -312,13 +312,18 @@ class Basic(Cog):
                 for idx, answer in enumerate(answers)
             ]
         )
+        for idx, awnser in enumerate(answers):
+            if awnser == question["results"][0]["correct_answer"]:
+                correct_reaction = idx
+            
+
         posttimer = (
             f"\n\n⏱️ The timer ran out <t:{int(datetime.now().timestamp())}:R>!"
         )
         post = postpreamble + postanswers + posttimer
         allowed_mentions = discord.AllowedMentions(replied_user=False)
         await msg.edit(content=post, allowed_mentions=allowed_mentions)
-        for user in msg.reactions[enumerate(answers)].user():
+        for user in msg.reactions[correct_reaction].user():
             await msg.reply(user)
 
     @commands.command()
