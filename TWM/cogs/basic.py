@@ -296,7 +296,7 @@ class Basic(Cog):
         posttimer = f"\n\n⏱️ The timer runs out <t:{int(datetime.now().timestamp()) + 62}:R>!"
         post = postpreamble + postanswers + posttimer
         msg = await ctx.reply(content=post, mention_author=False)
-        id = ctx.msg.id
+        id = msg.message.id
 
         for idx in range(len(answers)):
             await msg.add_reaction(answericons[idx])
@@ -324,7 +324,7 @@ class Basic(Cog):
         allowed_mentions = discord.AllowedMentions(replied_user=False)
         await msg.edit(content=post, allowed_mentions=allowed_mentions)
         msg = await ctx.fetch_message(id)
-        
+
         await ctx.send(msg.reactions)
         for user in msg.reactions[correct_reaction].user():
             await msg.reply(user)
