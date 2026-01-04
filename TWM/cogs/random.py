@@ -518,7 +518,21 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command(aliases=["WorldMachine", "Worldmachine", "en", "twm", "TWM", "Entity", "entity", "wm", "WM", "TheWorldMachine", "theworldmachine"])
+    @commands.command(
+        aliases=[
+            "WorldMachine",
+            "Worldmachine",
+            "en",
+            "twm",
+            "TWM",
+            "Entity",
+            "entity",
+            "wm",
+            "WM",
+            "TheWorldMachine",
+            "theworldmachine",
+        ]
+    )
     async def worldmachine(self, ctx):
         """Posts a random World Machine.
 
