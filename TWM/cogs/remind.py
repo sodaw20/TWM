@@ -9,7 +9,8 @@ from helpers.embeds import stock_embed, author_embed
 
 
 class Remind(Cog):
-    """\"Remind me to torture my slave again.\""""
+    """\"Remind me to torture my slave again.\" """
+
     def __init__(self, bot):
         self.bot = bot
 

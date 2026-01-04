@@ -19,6 +19,7 @@ from helpers.sv_config import get_config
 
 class ModToss(Cog):
     """Talk to a user one on one in a private channel."""
+
     def __init__(self, bot):
         self.bot = bot
         self.busy = False

@@ -10,6 +10,7 @@ from helpers.placeholders import random_msg
 
 class ModTimed(Cog):
     """Timebanning goes brrrr."""
+
     def __init__(self, bot):
         self.bot = bot
 

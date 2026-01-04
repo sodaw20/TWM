@@ -19,15 +19,12 @@ source_url = "https://github.com/ziolkoplayscode/TWM/"
 # The bot description to be used in the help command.
 short_desc = "I am the world machine."
 # The bot description to be used in the about command.
-long_desc = (
-    "> The World Machine\n"
-    + "*I AM THE SERVER ITSELF*\n\n"
-)
+long_desc = "> The World Machine\n" + "*I AM THE SERVER ITSELF*\n\n"
 
 # [cogs.basic/google] CSE (Custom Search Engine) ID
-cseid = None # Example: "token_goes_here"
+cseid = None  # Example: "token_goes_here"
 # [cogs.basic/google] API Key
-google_key = None # Example: "token_goes_here"
+google_key = None  # Example: "token_goes_here"
 # [cogs.shortcuts/prefixes] Maximum prefixes allowed.
 # This setting will cap at 25 prefixes regardless.
 maxprefixes = 6

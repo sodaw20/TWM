@@ -1,5 +1,6 @@
 import discord
 
+
 def get_help(bot, tf):
     cogs_list = bot.cogs.keys()
     sorted_cogs_list = sorted(cogs_list, key=str.lower)
@@ -17,6 +18,7 @@ def get_help(bot, tf):
     cogs_message = "\n".join(filtered_cogs_list)
     return cogs_message
 
+
 def get_commands(bot, cog):
     command_list = [c.name for c in cog.get_commands()]
     sorted_command_list = sorted(command_list, key=str.lower)
@@ -27,6 +29,5 @@ def get_commands(bot, cog):
             filtered_command_list.append(n + " - " + segments[0])
         else:
             filtered_command_list.append(n)
-    command_message = "\n".join(filtered_command_list) 
+    command_message = "\n".join(filtered_command_list)
     return command_message
-

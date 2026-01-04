@@ -14,6 +14,7 @@ from helpers.sv_config import fill_config, make_config, set_raw_config, validate
 
 class sv_config(Cog):
     """START HERE!!!"""
+
     def __init__(self, bot):
         self.bot = bot
 

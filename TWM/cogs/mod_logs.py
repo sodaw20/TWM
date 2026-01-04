@@ -11,6 +11,7 @@ from helpers.embeds import stock_embed, author_embed, sympage
 
 class ModLogs(Cog):
     """View logs about a user."""
+
     def __init__(self, bot):
         self.bot = bot
 

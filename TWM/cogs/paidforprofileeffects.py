@@ -11,6 +11,7 @@ from helpers.embeds import stock_embed
 
 class AvyDecorations(Cog):
     """Laughs at you if you have profile effects."""
+
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
