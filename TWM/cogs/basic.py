@@ -296,7 +296,7 @@ class Basic(Cog):
         posttimer = f"\n\n⏱️ The timer runs out <t:{int(datetime.now().timestamp()) + 62}:R>!"
         post = postpreamble + postanswers + posttimer
         msg = await ctx.reply(content=post, mention_author=False)
-        id = msg.message.id
+        id = msg.id
 
         for idx in range(len(answers)):
             await msg.add_reaction(answericons[idx])
