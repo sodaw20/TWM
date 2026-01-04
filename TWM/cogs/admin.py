@@ -303,7 +303,7 @@ class Admin(Cog):
         Useful for trying to figure out problems within Discord.
 
         No arguments."""
-        shutil.copy("logs/sangou.log", "logs/upload.log")
+        shutil.copy("logs/worldmachine.log", "logs/upload.log")
         await ctx.message.reply(
             content="The current log file...",
             file=discord.File("logs/upload.log", filename="sangou.log"),

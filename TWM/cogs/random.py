@@ -13,7 +13,7 @@ class Random(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["Niko"])
     async def niko(self, ctx):
         """Posts a random Niko.
 
@@ -37,7 +37,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Alula"])
     async def alula(self, ctx):
         """Posts a random Alula.
 
@@ -61,7 +61,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Bookbot"])
     async def bookbot(self, ctx):
         """Posts a random Bookbot.
 
@@ -85,7 +85,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Calamus"])
     async def calamus(self, ctx):
         """Posts a random Calamus.
 
@@ -109,7 +109,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Cedric"])
     async def cedric(self, ctx):
         """Posts a random Cedric.
 
@@ -133,7 +133,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Gatekeeper"])
     async def gatekeeper(self, ctx):
         """Posts a random Gatekeeper.
 
@@ -157,7 +157,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["George"])
     async def george(self, ctx):
         """Posts a random George.
 
@@ -181,7 +181,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Kelvin"])
     async def kelvin(self, ctx):
         """Posts a random Kelvin.
 
@@ -205,7 +205,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Kip"])
     async def kip(self, ctx):
         """Posts a random Kip.
 
@@ -229,7 +229,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Ling"])
     async def ling(self, ctx):
         """Posts a random Ling.
 
@@ -253,7 +253,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Magpie"])
     async def magpie(self, ctx):
         """Posts a random Magpie.
 
@@ -277,7 +277,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Maize"])
     async def maize(self, ctx):
         """Posts a random Maize.
 
@@ -301,7 +301,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Mason"])
     async def mason(self, ctx):
         """Posts a random Mason.
 
@@ -325,7 +325,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Plight"])
     async def plight(self, ctx):
         """Posts a random Plight.
 
@@ -349,7 +349,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Phrophet", "Prophetbot", "prophetbot"])
     async def prophet(self, ctx):
         """Posts a random Prophet.
 
@@ -373,7 +373,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Proto", "Prototype", "prototype"])
     async def proto(self, ctx):
         """Posts a random Proto.
 
@@ -397,7 +397,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Rowbot"])
     async def rowbot(self, ctx):
         """Posts a random Rowbot.
 
@@ -421,7 +421,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Rue"])
     async def rue(self, ctx):
         """Posts a random Rue.
 
@@ -445,7 +445,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Shepard"])
     async def shepard(self, ctx):
         """Posts a random Shepard.
 
@@ -469,7 +469,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Silver"])
     async def silver(self, ctx):
         """Posts a random Silver.
 
@@ -493,7 +493,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["Watcher"])
     async def watcher(self, ctx):
         """Posts a random Watcher.
 
@@ -517,7 +517,7 @@ class Random(Cog):
             mention_author=False,
         )
 
-    @commands.command()
+    @commands.command(aliases=["WorldMachine", "Worldmachine", "en", "twm", "TWM", "Entity", "entity", "wm", "WM", "TheWorldMachine", "theworldmachine"])
     async def worldmachine(self, ctx):
         """Posts a random World Machine.
 
