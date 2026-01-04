@@ -319,6 +319,8 @@ class Basic(Cog):
             post = postpreamble + postanswers + posttimer
             allowed_mentions = discord.AllowedMentions(replied_user=False)
             await msg.edit(content=post, allowed_mentions=allowed_mentions)
+            for user in msg.reactions[enumerate(answers)].user():
+                await msg.reply(user)
         except:
             await ctx.send("Unspecified error.")
 
