@@ -330,13 +330,18 @@ class Basic(Cog):
             await msg.reply(user)
 
     @commands.command()
-    async def hug(self, ctx):
+    async def hug(self, ctx, target):
         """This gives you a hug.
 
         I need to change this response and
         make it random. But I'm too lazy...
 
-        No arguments."""
+        - `target`
+        Who you want to hug. Optional."""
+        msg = random_msg("hug_msg", person1, person2)
+        person1 = "meow"
+        person2 = "meow2"
+        await ctx.send(msg)
         await ctx.send(f"I am incapable of hugs, but... \*hugs*")
 
     @commands.command()

@@ -248,3 +248,7 @@ revive_msg:
 sacrifice_msg:
  - "became one of the keys to the solstice ending."
  - "was sacrificed in the name of Niko and The World Machine."
+
+# Message for 'pls hug'
+hug_msg:
+- "{person1} test {person2}"
