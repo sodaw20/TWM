@@ -330,7 +330,7 @@ class Basic(Cog):
             await msg.reply(user)
 
     @commands.command()
-    async def hug(self, ctx, someone):
+    async def hug(self, ctx, someone: str=None):
         """This gives you a hug.
 
         I need to change this response and
@@ -412,7 +412,7 @@ class Basic(Cog):
         await ctx.send(f"🥖")
 
     @commands.command()
-    async def kill(self, ctx, *, someone: str):
+    async def kill(self, ctx, *, someone: str=None):
         """This kills someone.. or you..
 
         Use this at your own risk.
@@ -426,7 +426,7 @@ class Basic(Cog):
         await ctx.send(f"{someone} {msg}")
 
     @commands.command()
-    async def sacrifice(self, ctx, *, someone: str):
+    async def sacrifice(self, ctx, *, someone: str=None):
         """This sacrifices someone.
 
         No, we are not a cult.
@@ -440,7 +440,7 @@ class Basic(Cog):
         await ctx.send(f"{msg}")
 
     @commands.command()
-    async def revive(self, ctx, *, someone: str):
+    async def revive(self, ctx, *, someone: str=None):
         """This revives someone.
 
         HOW DID THEY DIE IN THE FIRST PLACE???
@@ -454,7 +454,7 @@ class Basic(Cog):
         await ctx.send(f"{msg}")
 
     @commands.command()
-    async def execute(self, ctx, *, someone: str):
+    async def execute(self, ctx, *, someone: str=None):
         """This executes someone.
 
         Why would you do this??
