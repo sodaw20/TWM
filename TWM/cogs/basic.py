@@ -326,7 +326,7 @@ class Basic(Cog):
         msg = await ctx.fetch_message(id)
 
         await ctx.send(msg.reactions)
-        for user in msg.reactions[correct_reaction].user():
+        for user in msg.reactions[correct_reaction].users():
             await msg.reply(user)
 
     @commands.command()
