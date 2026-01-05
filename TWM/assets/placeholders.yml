@@ -237,6 +237,7 @@ kill_msg_targeted:
  - "{person2} asked The World Machine if there was a seahorse emoji."
 
 # Message for 'pls kill'
+kill_msg:
  - "Kill you? Okay then.. *Asks Niko for a pipebomb before throwing it at you*"
  - "Can I ask why? Well, if you say so.. *Grabs a knife and stabs you 23 times*"
  - "How down bad are you? I'm not going to do that."
@@ -251,6 +252,7 @@ revive_msg_targeted:
  - "{person1} got Maize to bless {person2}"
 
 # Message for 'pls revive'
+revive_msg:
  - "How did you die? *Sighs and reives you*."
 
 # Message for 'pls sacrifice {someone}'
@@ -259,6 +261,7 @@ sacrifice_msg_targeted:
  - "{person1} sacrificed {person2} in the name of Niko and The World Machine."
 
 # Message for 'pls sacrifice'
+sacrifice_msg:
  - "I can't sacrifice myself in the name of myself.."
 
 # Message for 'pls hug {someone}'
