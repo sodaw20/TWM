@@ -195,60 +195,82 @@ embed_msg:
 
 # == BASIC.PY ==
 
+# Message for 'pls kill {someone}'
+kill_msg_targeted:
+ - "{person2} returned the sun to the tower."
+ - "{person2} gets crushed by the refuge elevator."
+ - "{person1} tied a weight to {person2} and drops them in the middle of the phosphor sea."
+ - "{person1} traps {person2} in an unknown closed room of the ruins without food or water."
+ - "{person1} got {person2} to invoke the ***wrath of Alula***. It didn't work well for {person2}"
+ - "{person2} tries to steal from Magpie and gets shot ten times."
+ - "{person2} tried to meet the Author."
+ - "{person2} thought that the controls for Cedrick's plane would be intuitive."
+ - "{person1} told {person2} about George's seventh personality."
+ - "{person2} tried Plight's routine for a day."
+ - "{person2} tried to hack Silver."
+ - "{person2} never left the house Niko woke up in."
+ - "{person2} took a sip out of Plight's coffee."
+ - "{person1} pushed {person2} into the squares. {squares}"
+ - "{person2} convinced Nightmargin to personally remove them from the game."
+ - "{person1} pushed {person2} who fell to their death while exploring the mines."
+ - "{person2} thought it would be a good idea to take a ride in one of the convenyor belts in the factory."
+ - "{person2} tried to tell The World Machine a paradox."
+ - "{person1} didnt warn {person2} about the phospor gas."
+ - "{person2} tried to insert Super Mario Bros. into Prototype's disk drive."
+ - "{person2} tried to run doom on The World Machine."
+ - "{person1} dared {person2} to take Niko's pancakes."
+ - "{person2} tried to see the Shepard moving."
+ - "{person2} tried to stay up late and talk to the Watcher."
+ - "{person2} told Niko they were a cat."
+ - "{person2} constantly didn't get permission to rest from {person1}"
+ - "{person2} looked a little *too much* like pancakes."
+ - "{person2} tried to understand the power of  T H E   R A M."
+ - "{person2} failed to make an elevator button."
+ - "{person2} tried to figure out how OneShot knows their name."
+ - "{person2} tried to kidnap a ram."
+ - "{person2} tried to fry Alula."
+ - "{person2} said  h e l l o  to the penguin."
+ - "{person2} didn't reply  h e l l o  to the penguin."
+ - "{person2} got a molotov thrown at them by {person1}"
+ - "{person2} found a pipebomb in their mailbox that was sent by {person1}"
+ - "{person1} told Niko to commit arson on {person2}."
+ - "{person2} asked The World Machine if there was a seahorse emoji."
+
 # Message for 'pls kill'
-kill_msg:
- - "returned the sun to the tower."
- - "gets crushed by the refuge elevator."
- - "gets dropped off in the middle of the phospor sea with a weight tied to them."
- - "gets trapped in an unknown closed room of the ruins without food or water."
- - "invoked the ***wrath of Alula***."
- - "tries to steal from Magpie and gets shot ten times."
- - "tried to meet the Author."
- - "thought that the controls for Cedrick's plane would be intuitive."
- - "found out about George's seventh personality."
- - "tried Plight's routine for a day."
- - "tried to hack Silver."
- - "never left the house Niko woke up in."
- - "took a sip out of Plight's coffee."
- - "falls into the squares. {squares}"
- - "convinced Nightmargin to personally remove them from the game."
- - "fell to their death exploring the mines."
- - "thought it would be a good idea to take a ride in one of the convenyor belts in the factory."
- - "tried to tell The World Machine a paradox."
- - "wasn't warned about the phospor gas."
- - "tried to insert Super Mario Bros. into Prototype's disk drive."
- - "tried to run doom on The World Machine."
- - "tried to take Niko's pancakes."
- - "tried to see the Shepard moving."
- - "tried to stay up late and talk to the Watcher."
- - "told Niko they were a cat."
- - "constantly didn't get permission to rest."
- - "looked a little *too much* like pancakes."
- - "tried to understand the power of  T H E   R A M."
- - "failed to make an elevator button."
- - "tried to figure out how OneShot knows their name."
- - "tried to kidnap a ram."
- - "tried to fry Alula."
- - "said  h e l l o  to the penguin."
- - "didn't reply  h e l l o  to the penguin."
- - "got a molotov thrown at them."
- - "found a pipebomb in their mailbox."
- - "told Niko to commit arson on them."
- - "asked The World Machine if there was a seahorse emoji."
+ - "Kill you? Okay then.. *Asks Niko for a pipebomb before throwing it at you*"
+ - "Can I ask why? Well, if you say so.. *Grabs a knife and stabs you 23 times*"
+ - "How down bad are you? I'm not going to do that."
+ - "No."
+
+# Message for 'pls revive {someone}'
+revive_msg_targeted:
+ - "{person1} convinced The World Machine to rollback the save and revive {person2}."
+ - "{person2} was added into the game by {person1}."
+ - "{person1} gave Niko some pancakes and asked them to revive {person2}"
+ - "{person1} shattered the sun, bringing {person2} back home."
+ - "{person1} got Maize to bless {person2}"
 
 # Message for 'pls revive'
-revive_msg:
- - "convinced The World Machine to rollback the save."
- - "was added into the game."
- - "gave Niko some pancakes."
- - "shattered the sun."
- - "was blessed by Maize."
+ - "How did you die? *Sighs and reives you*."
+
+# Message for 'pls sacrifice {someone}'
+sacrifice_msg_targeted:
+ - "{person1} turned {person2} into one of the keys to the solstice ending."
+ - "{person1} sacrificed {person2} in the name of Niko and The World Machine."
 
 # Message for 'pls sacrifice'
-sacrifice_msg:
- - "became one of the keys to the solstice ending."
- - "was sacrificed in the name of Niko and The World Machine."
+ - "I can't sacrifice myself in the name of myself.."
+
+# Message for 'pls hug {someone}'
+hug_msg_targeted:
+ - "in an act of care, {person1} pulls {person2} towards them and gently hugs them."
+ - "{person1} wraps their arms around {person2} and pats their back."
+ - "{person2} smiles greatfully as {person1} gives them a long hug"
+ - "{person1} desparately hugs at {person2}'s legs as they pull grumpily away, but to no avail."
+ - "{person1} hands {person2} a tissue before giving them a simple hug." 
 
 # Message for 'pls hug'
 hug_msg:
-- "{person1} test {person2}"
+ - "I mean- if you really need it, but I'm not one to give the best hugs. here we go then.. *hugs*"
+ - -"Oh, you sure? I'll give a hug any time, but I wasn't exactly made for it.. *But wait, this is literally in my code??* Never mind, let me just hug you already :) *hugs*"
+ - "Uhm- okay! I'll hug you {love} *hugs*"

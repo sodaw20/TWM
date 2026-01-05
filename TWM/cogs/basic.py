@@ -330,15 +330,18 @@ class Basic(Cog):
             await msg.reply(user)
 
     @commands.command()
-    async def hug(self, ctx, target):
+    async def hug(self, ctx, someone):
         """This gives you a hug.
 
         I need to change this response and
         make it random. But I'm too lazy...
 
-        - `target`
+        - `someone`
         Who you want to hug. Optional."""
-        msg = random_msg("hug_msg", person1 = "test", person2 = "test2")
+        if someone:
+            msg = random_msg("hug_msg_targeted", person1 = ctx.author.mention, person2 = someone)
+        else:
+            msg = random_msg("hug_msg", person1 = ctx.author.mention)
         await ctx.send(msg)
 
     @commands.command()
@@ -410,13 +413,16 @@ class Basic(Cog):
 
     @commands.command()
     async def kill(self, ctx, *, someone: str):
-        """This kills someone.
+        """This kills someone.. or you..
 
-        Use this at your own risk
+        Use this at your own risk.
 
         - `someone`
-        Who's going to die. Could just be text."""
-        msg = random_msg("kill_msg")
+        Who's going to die. Could just be text. Optional."""
+        if someone:
+            msg = random_msg("kill_msg_targeted", person1 = ctx.author.mention, person2 = someone)
+        else:
+            msg = random_msg("kill_msg")
         await ctx.send(f"{someone} {msg}")
 
     @commands.command()
@@ -427,8 +433,11 @@ class Basic(Cog):
 
         - `someone`
         Who's going to be sacrificed. Could just be text."""
-        msg = random_msg("sacrifice_msg")
-        await ctx.send(f"{someone} {msg}")
+        if someone:
+            msg = random_msg("sacrifice_msg_targeted", person1 = ctx.author.mention, person2 = someone)
+        else:
+            msg = random_msg("sacrifice_msg")
+        await ctx.send(f"{msg}")
 
     @commands.command()
     async def revive(self, ctx, *, someone: str):
@@ -438,8 +447,11 @@ class Basic(Cog):
 
         - `someone`
         Who's going to be revived. Could just be text."""
-        msg = random_msg("revive_msg")
-        await ctx.send(f"{someone} {msg}")
+        if someone:
+            msg = random_msg("revive_msg_targeted", person1 = ctx.author.mention, person2 = someone)
+        else:
+            msg = random_msg("revive_msg")
+        await ctx.send(f"{msg}")
 
     @commands.command()
     async def execute(self, ctx, *, someone: str):
