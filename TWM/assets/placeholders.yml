@@ -272,5 +272,5 @@ hug_msg_targeted:
 # Message for 'pls hug'
 hug_msg:
  - "I mean- if you really need it, but I'm not one to give the best hugs. here we go then.. *hugs*"
- - -"Oh, you sure? I'll give a hug any time, but I wasn't exactly made for it.. *But wait, this is literally in my code??* Never mind, let me just hug you already :) *hugs*"
+ - "Oh, you sure? I'll give a hug any time, but I wasn't exactly made for it.. *But wait, this is literally in my code??* Never mind, let me just hug you already {love} *hugs*"
  - "Uhm- okay! I'll hug you {love} *hugs*"
