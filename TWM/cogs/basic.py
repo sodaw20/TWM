@@ -338,7 +338,7 @@ class Basic(Cog):
 
         - `target`
         Who you want to hug. Optional."""
-        msg = random_msg("hug_msg", f"{person1}", f"{person2}")
+        msg = random_msg("hug_msg", {"person1":str(person1)}, {"person2":str(person2)})
         person1 = "meow"
         person2 = "meow2"
         await ctx.send(msg)
