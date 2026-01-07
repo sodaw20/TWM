@@ -1188,8 +1188,11 @@ class Basic(Cog):
             await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll in losenum:
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
-            await asyncio.sleep(10)
-            await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+       await asyncio.sleep(10)
+            if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
+                await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+            else:
+                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll == winnum:
