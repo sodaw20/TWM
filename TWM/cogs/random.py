@@ -13,6 +13,26 @@ class Random(Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        
+    async def post_random(self,ctx,folder: str, append_path: bool = True) -> None:
+        """The LAZIEST function.
+        Pass False if folder isn't under assets/random.
+        """
+        if append_path:
+            folder = "assets/random/" + folder
+        await ctx.reply(
+            file=discord.File(
+                folder
+                + "/"
+                + random.choice(
+                    [
+                        f
+                        for f in os.listdir(folder)
+                        if os.path.isfile(os.path.join(folder, f))
+                    ]
+            ),
+            mention_author=False
+        )
 
     @commands.command(aliases=["Niko"])
     async def niko(self, ctx):
@@ -21,22 +41,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/niko"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"niko")
 
     @commands.command(aliases=["Alula"])
     async def alula(self, ctx):
@@ -45,22 +51,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/alula"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"alula")
 
     @commands.command(aliases=["Bookbot"])
     async def bookbot(self, ctx):
@@ -69,22 +61,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/bookbot"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"bookbot")
 
     @commands.command(aliases=["Calamus"])
     async def calamus(self, ctx):
@@ -93,22 +71,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/calamus"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"calamus")
 
     @commands.command(aliases=["Cedric"])
     async def cedric(self, ctx):
@@ -117,23 +81,9 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/cedric"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
-
+        
+        await self.post_random(ctx,"cedric")
+        
     @commands.command(aliases=["Gatekeeper"])
     async def gatekeeper(self, ctx):
         """Posts a random Gatekeeper.
@@ -141,22 +91,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/gatekeeper"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"gatekeeper")
 
     @commands.command(aliases=["George"])
     async def george(self, ctx):
@@ -165,22 +101,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/george"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"george")
 
     @commands.command(aliases=["Kelvin"])
     async def kelvin(self, ctx):
@@ -189,22 +111,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/kelvin"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random(ctx,"kelvin")
 
     @commands.command(aliases=["Kip"])
     async def kip(self, ctx):
@@ -213,22 +121,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/kip"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("kip")
 
     @commands.command(aliases=["Ling"])
     async def ling(self, ctx):
@@ -237,22 +131,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/ling"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("ling")
 
     @commands.command(aliases=["Magpie"])
     async def magpie(self, ctx):
@@ -261,22 +141,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/magpie"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("magpie")
 
     @commands.command(aliases=["Maize"])
     async def maize(self, ctx):
@@ -285,22 +151,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/maize"
 
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        await self.post_random("maize")
 
     @commands.command(aliases=["Mason"])
     async def mason(self, ctx):
@@ -309,22 +161,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/mason"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("mason")
 
     @commands.command(aliases=["Plight"])
     async def plight(self, ctx):
@@ -333,22 +171,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/plight"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("plight")
 
     @commands.command(aliases=["Phrophet", "Prophetbot", "prophetbot"])
     async def prophet(self, ctx):
@@ -357,22 +181,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/prophet"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("prophet")
 
     @commands.command(aliases=["Proto", "Prototype", "prototype"])
     async def proto(self, ctx):
@@ -381,22 +191,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/proto"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("proto")
 
     @commands.command(aliases=["Rowbot"])
     async def rowbot(self, ctx):
@@ -405,22 +201,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/rowbot"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("rowbot")
 
     @commands.command(aliases=["Rue"])
     async def rue(self, ctx):
@@ -429,23 +211,9 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/rue"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
-
+        
+        await self.post_random("rue")
+        
     @commands.command(aliases=["Shepard"])
     async def shepard(self, ctx):
         """Posts a random Shepard.
@@ -453,22 +221,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/shepard"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("shepard")
 
     @commands.command(aliases=["Silver"])
     async def silver(self, ctx):
@@ -477,22 +231,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/silver"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("silver")
 
     @commands.command(aliases=["Watcher"])
     async def watcher(self, ctx):
@@ -501,22 +241,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/watcher"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
+        
+        await self.post_random("watcher")
 
     @commands.command(
         aliases=[
@@ -539,23 +265,8 @@ class Random(Cog):
         There really isn't much else to this.
 
         No arguments."""
-        folder = "assets/random/wm"
-
-        await ctx.reply(
-            file=discord.File(
-                folder
-                + "/"
-                + random.choice(
-                    [
-                        f
-                        for f in os.listdir(folder)
-                        if os.path.isfile(os.path.join(folder, f))
-                    ]
-                )
-            ),
-            mention_author=False,
-        )
-
+        
+        await self.post_random("wm")
 
 async def setup(bot):
     await bot.add_cog(Random(bot))
