@@ -1177,20 +1177,20 @@ class Basic(Cog):
         losenum = [random.randint(1, 1000) for _ in range(10)]
         msg = await ctx.send(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE")
         asyncio.sleep(1)
-        await msg.edit(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE.")
+        await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE.")
         asyncio.sleep(1)
-        await msg.edit(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
+        await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
         asyncio.sleep(1)
         if roll != winnum and not roll in losenum:
-            await msg.edit(f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN IN ONE HOUR\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
+            await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN IN ONE HOUR\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll in losenum:
-            await msg.edit(f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
+            await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
             asyncio.sleep(10)
             await self.bot.kick(ctx.author)
         elif roll == winnum:
-            await msg.edit("idk what to put here yet so uhhh.. you win..?")
+            await msg.edit(content="idk what to put here yet so uhhh.. you win..?")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
 
