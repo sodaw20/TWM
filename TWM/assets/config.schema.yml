@@ -78,7 +78,7 @@ properties:
         type: 
           - integer
           - "null"
-      kickongambleloss
+      kickongambleloss:
         type:
           - Boolean
           - "null"
