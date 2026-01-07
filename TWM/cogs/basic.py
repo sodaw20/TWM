@@ -1122,8 +1122,8 @@ class Basic(Cog):
 
         await ctx.reply(embed=embed, mention_author=False)
 
-    @commands.command(aliases=["getcommands"])
-    async def commands(self, ctx, ext: str, more=False):
+    @commands.command(aliases=["commands"])
+    async def getcommands(self, ctx, ext: str, more=False):
         """This gets all commands in a cog.
 
         Run `pls help` to get a list of cogs.
