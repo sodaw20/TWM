@@ -1188,7 +1188,9 @@ class Basic(Cog):
         elif roll in losenum:
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
             await asyncio.sleep(10)
-            await self.bot.kick(ctx.author)
+            await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll == winnum:
             await msg.edit(content="idk what to put here yet so uhhh.. you win..?")
             asyncio.sleep(config.gamblecooldown)
