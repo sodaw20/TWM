@@ -1182,7 +1182,7 @@ class Basic(Cog):
         await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
         await asyncio.sleep(1)
         if roll != winnum and not roll in losenum:
-            await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN IN ONE HOUR\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
+            await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
             await asyncio.sleep(config.gamblecooldown)
             await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll in losenum:
