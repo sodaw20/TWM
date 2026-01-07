@@ -22,6 +22,8 @@ import aiohttp
 import re as ren
 import html
 import json
+import config
+import random
 
 
 class Basic(Cog):
@@ -1158,6 +1160,41 @@ class Basic(Cog):
             await ctx.send(
                 "Thats not a valid cog. Remember that cog names are case-sensitive!"
             )
+
+
+    @commands.cooldown(1, config.gamblecooldown, type=commands.BucketType.default)
+    @commands.guild_only()
+    @commands.command()
+    async def gamble(self, ctx, roll: int = None):
+        '''LET'S GO GAMBLING!
+        AWW DANG IT. AWW DANG IT. AWW DANG IT.
+        .1% chance of a special happening.
+        1% chance of being kicked.
+        
+        - `roll`
+        A number between 1 and 1000 to roll. Will be random if not supplied. Optional.'''
+        winnum = random.randint(1, 1000)
+        losenum = [random.randint(1, 1000) for _ in range(10)]
+        msg = await ctx.send(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE")
+        asyncio.sleep(1)
+        await msg.edit(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE.")
+        asyncio.sleep(1)
+        await msg.edit(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
+        asyncio.sleep(1)
+        if roll != winnum and not roll in losenum:
+            await msg.edit(f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN IN ONE HOUR\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+        elif roll in losenum:
+            await msg.edit(f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
+            asyncio.sleep(10)
+            await self.bot.kick(ctx.author)
+        elif roll == winnum:
+            await msg.edit("idk what to put here yet so uhhh.. you win..?")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+
+
 
 
 async def setup(bot):

@@ -14,6 +14,9 @@ version = "0.0.0"
 # Discord server invite link
 invite = "https://discord.gg/xxxxxxxx"
 
+#pls gamble cooldown in seconds
+gamblecooldown = 3600
+
 # If you forked Sangou, put your repo here.
 source_url = "https://github.com/ziolkoplayscode/TWM/"
 # The bot description to be used in the help command.
