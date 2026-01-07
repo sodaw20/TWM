@@ -44,6 +44,9 @@ staff:
   # If you would like Staff to be notified when a user continuously reply pings someone,
   # set this to the number of times after which the bot will notify Staff. Maximum of 10.
   noreplythreshold: 
+  # Whether you want users to be kicked when they lose to their gambling addiction.
+  kickongambleloss: 
+
 
 toss:
   # The role ID to add to users when performing a toss.
