@@ -1176,15 +1176,15 @@ class Basic(Cog):
         winnum = random.randint(1, 1000)
         losenum = [random.randint(1, 1000) for _ in range(10)]
         msg = await ctx.send(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE")
-        asyncio.sleep(1)
+        asyncio.sleep(5)
         await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE.")
-        asyncio.sleep(1)
+        asyncio.sleep(5)
         await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
-        asyncio.sleep(1)
+        asyncio.sleep(5)
         if roll != winnum and not roll in losenum:
             await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN IN ONE HOUR\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+            await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll in losenum:
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
             asyncio.sleep(10)
