@@ -10,7 +10,7 @@ import random
 import platform
 import hashlib
 import zlib
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from discord.ext import commands
 from discord.ext.commands import Cog
 from helpers.embeds import stock_embed, author_embed
@@ -1190,7 +1190,7 @@ class Basic(Cog):
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
             await asyncio.sleep(10)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
-                await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
             else:
                 ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
@@ -1203,7 +1203,7 @@ class Basic(Cog):
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS")
             await asyncio.sleep(10)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
-                await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
             else:
                 ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
