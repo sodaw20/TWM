@@ -80,7 +80,7 @@ properties:
           - "null"
       kickongambleloss:
         type:
-          - Boolean
+          - boolean
           - "null"
   toss:
     type: object
