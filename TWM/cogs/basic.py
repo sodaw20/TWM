@@ -17,6 +17,7 @@ from helpers.embeds import stock_embed, author_embed
 from helpers.datafiles import fill_profile
 from helpers.placeholders import random_msg
 from helpers.help import get_help, get_commands
+from helpers.sv_config import get_config
 from zoneinfo import ZoneInfo, available_timezones
 import aiohttp
 import re as ren
@@ -1198,7 +1199,10 @@ class Basic(Cog):
         elif roll == 67:
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS")
             await asyncio.sleep(10)
-            await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+            if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
+                await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
+            else:
+                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
 
