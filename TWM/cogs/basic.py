@@ -1162,7 +1162,7 @@ class Basic(Cog):
             )
 
 
-    @commands.cooldown(1, config.gamblecooldown, type=commands.BucketType.default)
+    @commands.cooldown(1, config.gamblecooldown, type=commands.BucketType.user)
     @commands.guild_only()
     @commands.command()
     async def gamble(self, ctx, roll: int = None):
