@@ -425,7 +425,7 @@ class Basic(Cog):
             msg = random_msg("kill_msg_targeted", person1 = ctx.author.mention, person2 = someone)
         else:
             msg = random_msg("kill_msg")
-        await ctx.send(f"{someone} {msg}")
+        await ctx.send(f"{msg}")
 
     @commands.command()
     async def sacrifice(self, ctx, *, someone: str=None):

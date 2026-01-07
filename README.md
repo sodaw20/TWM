@@ -8,6 +8,8 @@
 
 TWM is a fork of [sangou](https://github.com/vrnavi/sangou) with some tweaks.
 
+Note: To Renavi, if you want me to make this repository private, please tell me.
+
 ---
 
 # Usage
