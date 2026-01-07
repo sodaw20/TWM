@@ -1181,7 +1181,7 @@ class Basic(Cog):
         await asyncio.sleep(1)
         await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
         await asyncio.sleep(1)
-        if roll != winnum and not roll in losenum:
+        if roll != winnum and not roll in losenum and not roll == 67:
             await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
             await asyncio.sleep(config.gamblecooldown)
             await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
@@ -1193,6 +1193,12 @@ class Basic(Cog):
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll == winnum:
             await msg.edit(content="idk what to put here yet so uhhh.. you win..?")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+        elif roll == 67:
+            await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS")
+            await asyncio.sleep(10)
+            await ctx.author.timeout(config.gamblecooldown, reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
 
