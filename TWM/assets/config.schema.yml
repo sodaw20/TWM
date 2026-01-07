@@ -78,6 +78,10 @@ properties:
         type: 
           - integer
           - "null"
+      kickongambleloss
+        type:
+          - Boolean
+          - "null"
   toss:
     type: object
     properties:
