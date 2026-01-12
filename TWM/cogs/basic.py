@@ -1218,7 +1218,7 @@ class Basic(Cog):
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional.'''
         if mention == None:
             mention = ctx.author.mention
-            
+
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
         elif mention == "random":
@@ -1227,6 +1227,7 @@ class Basic(Cog):
             random.seed(a=mention, version=2)
         name = random_msg("prefix")+random_msg("suffix")
         await ctx.send(name)
+        random.seed(a=None, version=2)
 
 
 async def setup(bot):
