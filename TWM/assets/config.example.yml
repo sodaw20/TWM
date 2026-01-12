@@ -46,6 +46,8 @@ staff:
   noreplythreshold: 
   # Whether you want users to be kicked when they lose to their gambling addiction.
   kickongambleloss: 
+  # The role to give when someone gets lucky.
+  gamblewinrole:
 
 
 toss:

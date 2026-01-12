@@ -1176,38 +1176,41 @@ class Basic(Cog):
         A number between 1 and 1000 to roll. Will be random if not supplied. Optional.'''
         winnum = random.randint(1, 1000)
         losenum = [random.randint(1, 1000) for _ in range(10)]
-        msg = await ctx.send(f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE")
+        distlose = abs(roll - min(losenum, key=lambda x:abs(x-roll)))
+        msg = await ctx.send(f"Now rolling with {roll}")
         await asyncio.sleep(1)
-        await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE.")
+        await msg.edit(content=f"Now rolling with {roll}.")
         await asyncio.sleep(1)
-        await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
+        await msg.edit(content=f"Now rolling with {roll}..")
         await asyncio.sleep(1)
         if roll != winnum and not roll in losenum and not roll == 67:
-            await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
+            await msg.edit(content=f"You didn't win anything...\nYour roll {roll} was {abs(winnum - roll)} off from the correct number. It was also {distlose} off from the nearest bad number.\nPlease try again in a bit... ")
             await asyncio.sleep(config.gamblecooldown)
-            await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+            await ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
         elif roll in losenum:
-            await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
+            await msg.edit(content=f"You rolled a bad number, ouch. Give me ten seconds to load the revolver, hold still...")
             await asyncio.sleep(10)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
                 await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
             else:
                 ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+            ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
         elif roll == winnum:
-            await msg.edit(content="idk what to put here yet so uhhh.. you win..?")
+            await msg.edit(content=f"You won the gambling, {ctx.author.mention}!\nI gave you the role.")
+            await self.bot.add_roles(ctx.author, ctx.guild.get_role(get_config(ctx.guild.id, "staff", "gamblewinrole")))
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+            ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
         elif roll == 67:
-            await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS")
-            await asyncio.sleep(10)
+            await msg.edit(content=f"...")
+            await asyncio.sleep(5)
+            await ctx.send("No. I'm not doing this. Say goodbye.")
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
                 await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
             else:
-                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
+                ctx.author.kick(reason="NO.")
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+            ctx.author.send(f"Hey, you can gamble. Just, don't do it again.")
 
     @commands.command()
     async def warriorname(self, ctx, mention: str | discord.User = None):

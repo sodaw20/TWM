@@ -82,6 +82,12 @@ properties:
         type:
           - boolean
           - "null"
+      gamblewinrole:
+        type:
+          - integer
+          - string
+          - "null"
+        minimum: 100000000000000000
   toss:
     type: object
     properties:
