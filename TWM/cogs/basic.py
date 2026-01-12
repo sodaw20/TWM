@@ -10,13 +10,14 @@ import random
 import platform
 import hashlib
 import zlib
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from discord.ext import commands
 from discord.ext.commands import Cog
 from helpers.embeds import stock_embed, author_embed
 from helpers.datafiles import fill_profile
 from helpers.placeholders import random_msg
 from helpers.help import get_help, get_commands
+from helpers.sv_config import get_config
 from zoneinfo import ZoneInfo, available_timezones
 import aiohttp
 import re as ren
@@ -1181,16 +1182,30 @@ class Basic(Cog):
         await asyncio.sleep(1)
         await msg.edit(content=f"ROLLING WITH YOUR NUMBER {roll} BIG SUSPENSE..")
         await asyncio.sleep(1)
-        if roll != winnum and not roll in losenum:
+        if roll != winnum and not roll in losenum and not roll == 67:
             await msg.edit(content=f"SORRY YOU DIDN'T WIN ANYTHING......\nYOUR ROLL {roll} WAS NOT {winnum} TRY AGAIN\nBUT AT LEAST IT WASN'T ONE OF THE BAD ONES:\n`{losenum}`")
             await asyncio.sleep(config.gamblecooldown)
             await ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll in losenum:
             await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS ")
             await asyncio.sleep(10)
-            await self.bot.kick(ctx.author)
+            if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
+            else:
+                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
         elif roll == winnum:
             await msg.edit(content="idk what to put here yet so uhhh.. you win..?")
+            asyncio.sleep(config.gamblecooldown)
+            ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
+        elif roll == 67:
+            await msg.edit(content=f"OOPS YOUR ROLL {roll} WAS ONE OF THE BAD NUMBERS OK BYE BYE IN TEN SECONDS")
+            await asyncio.sleep(10)
+            if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
+            else:
+                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
 
