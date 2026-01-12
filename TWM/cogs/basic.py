@@ -1194,7 +1194,21 @@ class Basic(Cog):
             asyncio.sleep(config.gamblecooldown)
             ctx.author.send(f"{ctx.author.mention} YOU CAN GAMBLE ONCE MORE\nREMEMBER GAMBLING IS AN INVESTMENT, 99% OF GAMBLERS QUIT BEFORE THEY HIT IT BIG")
 
-
+    @commands.command()
+    async def warriorname(self, ctx, mention: str | discord.User):
+        '''Generates your warrior name.
+        It's always the same.
+        
+        - `mention`
+        The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional.'''
+        if isinstance(mention, discord.User):
+            random.seed(a=mention.id, version=2)
+        elif mention == "random":
+            random.seed(a=None, version=2)
+        else:
+            random.seed(a=mention, version=2)
+        name = random_msg("prefix")+random_msg("suffix")
+        ctx.send(name)
 
 
 async def setup(bot):
