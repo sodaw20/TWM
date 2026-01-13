@@ -511,10 +511,9 @@ class Messagescan(Cog):
             not message.content
             or ctx.valid
             or message.author.bot
-            or not message.guild
         ):
             return
-        if ctx.message.includes("67"):
+        if ctx.message.content.includes("67"):
             ctx.send("no")
 
 async def setup(bot: Bot):
