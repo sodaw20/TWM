@@ -517,9 +517,10 @@ class Messagescan(Cog):
         
         if 'skibidi' in ctx.message.content:
             await ctx.send("I'm not doing this. Here's a timeout.")
-            ctx.author.timeout(timedelta(seconds=60), reason="...")
-            ctx.message.delete()
-        elif '67' in ctx.message.content:
+            if message.guild:
+                ctx.author.timeout(timedelta(seconds=60), reason="...")
+                message.delete()
+        elif '67' in message.content:
             await ctx.send("No.")
 
 
