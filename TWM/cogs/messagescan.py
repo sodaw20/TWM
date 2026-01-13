@@ -6,6 +6,7 @@ import asyncio
 import deepl
 import googletrans
 from discord.ext.commands import Cog, Context, Bot
+from datetime import timedelta
 from discord.ext import commands
 from helpers.checks import ismod
 from helpers.sv_config import get_config
@@ -513,8 +514,14 @@ class Messagescan(Cog):
             or message.author.bot
         ):
             return
-        if '67' in ctx.message.content:
+        
+        if 'skibidi' in ctx.message.content:
+            await ctx.send("I'm not doing this. Here's a timeout.")
+            ctx.author.timeout(timedelta(seconds=60), reason="...")
+            ctx.message.delete()
+        elif '67' in ctx.message.content:
             await ctx.send("No.")
+
 
 async def setup(bot: Bot):
     await bot.add_cog(Messagescan(bot))
