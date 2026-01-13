@@ -1177,14 +1177,30 @@ class Basic(Cog):
         winnum = random.randint(1, 1000)
         losenum = [random.randint(1, 1000) for _ in range(10)]
         distlose = abs(roll - min(losenum, key=lambda x:abs(x-roll)))
+
         msg = await ctx.send(f"Now rolling with {roll}")
-        await asyncio.sleep(1)
-        await msg.edit(content=f"Now rolling with {roll}.")
-        await asyncio.sleep(1)
-        await msg.edit(content=f"Now rolling with {roll}..")
+        if abs(winnum - roll) <= 500:
+            await asyncio.sleep(1)
+            await msg.edit(content=f"Now rolling with {roll}.")
+            if abs(winnum - roll) <= 250:
+                await asyncio.sleep(1)
+                await msg.edit(content=f"Now rolling with {roll}..")
+                if abs(winnum - roll) <= 100:
+                    await asyncio.sleep(1)
+                    await msg.edit(content=f"Now rolling with {roll}...")
+                    if abs(winnum - roll) <= 50:
+                        await asyncio.sleep(1)
+                        await msg.edit(content=f"Now rolling with {roll}....")
+                        if abs(winnum - roll) <= 25:
+                            await asyncio.sleep(1)
+                            await msg.edit(content=f"Now rolling with {roll}.....")
+                            if abs(winnum - roll) <= 10:
+                                await asyncio.sleep(1)
+                                await msg.edit(content=f"Now rolling with {roll}......")
+
         await asyncio.sleep(1)
         if roll != winnum and not roll in losenum and not roll == 67:
-            await msg.edit(content=f"You didn't win anything...\nYour roll {roll} was {abs(winnum - roll)} off from the correct number. It was also {distlose} off from the nearest bad number.\nPlease try again in a bit... ")
+            await msg.edit(content=f"You didn't win anything...\nYour roll `{roll}` was `{abs(winnum - roll)}` off from the correct number. It was also `{distlose}` off from the nearest bad number.\nPlease try again in a bit... ")
             await asyncio.sleep(config.gamblecooldown)
             await ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
         elif roll in losenum:
@@ -1205,6 +1221,7 @@ class Basic(Cog):
             await msg.edit(content=f"...")
             await asyncio.sleep(5)
             await ctx.send("No. I'm not doing this. Say goodbye.")
+            await asyncio.sleep(5)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
                 await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
             else:
