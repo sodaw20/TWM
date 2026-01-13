@@ -504,6 +504,18 @@ class Messagescan(Cog):
             content()
             await holder.edit(embed=embed, allowed_mentions=allowed_mentions)
 
+    @Cog.listener('on_message')
+    async def react_message(self, message):
+        ctx = await self.bot.get_context(message)
+        if (
+            not message.content
+            or ctx.valid
+            or message.author.bot
+            or not message.guild
+        ):
+            return
+        if ctx.message.includes("67"):
+            ctx.send("no")
 
 async def setup(bot: Bot):
     await bot.add_cog(Messagescan(bot))
