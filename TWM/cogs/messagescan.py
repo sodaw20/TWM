@@ -521,7 +521,7 @@ class Messagescan(Cog):
                 await message.delete()
                 await ctx.author.timeout(timedelta(seconds=60), reason="...")
         elif '67' in message.content or '6 7' in message.content.lower():
-            await message.reply(message="No.")
+            await message.reply(content="No.")
 
 
 async def setup(bot: Bot):
