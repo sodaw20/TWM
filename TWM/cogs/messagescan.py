@@ -513,8 +513,8 @@ class Messagescan(Cog):
             or message.author.bot
         ):
             return
-        if ctx.message.content.includes("67"):
-            ctx.send("no")
+        if "67" in ctx.message.content:
+            ctx.send("No.")
 
 async def setup(bot: Bot):
     await bot.add_cog(Messagescan(bot))
