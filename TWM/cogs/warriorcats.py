@@ -83,8 +83,8 @@ class warrriorcats(Cog)
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
-    @commands.command()
-    async def warriorappearance(self, ctx):
+    #@commands.command()
+    #async def warriorappearance(self, ctx):
         
 async def setup(bot):
     await bot.add_cog(Basic(bot))
