@@ -81,7 +81,7 @@ class Warriors(Cog):
             await ctx.send("That's not a valid suffix. Only suffixes from the series are allowed.")
             
     @warriorname.command(name="set clan")
-    async def wcsetclan(self, ctx, prefix: str):
+    async def wcsetclan(self, ctx, clan: str):
         """Sets your clan.
         Legal home changer?!?!?
         
