@@ -314,6 +314,7 @@ clans:
  - "The Tribe Of Rushing Water"
  - "BloodClan"
  - "The Dark Forest"
+ - "Rouge"
  - "Loner"
 
 clan_emojis:
@@ -327,6 +328,7 @@ clan_emojis:
   The Tribe Of Rushing Water: "{tribe}"
   BloodClan: "{bloodclan}"
   The Dark Forest: "{darkforest}"
+  Rouge: "{rouge}"
   Loner: "{loner}"
 
 
