@@ -14,6 +14,7 @@ class Warriors(Cog):
     @commands.group(invoke_without_command=True)
     async def warriorname(self, ctx):
         """Commands to do with your warrior name.
+
         It's always the same, unless you change it with warriorname set.
         You can view it with warriorname get.
         
@@ -23,6 +24,7 @@ class Warriors(Cog):
     @warriorname.group(invoke_without_command=True, name="set")
     async def wcsetname(self, ctx):
         """Commands to do with your warrior name.
+
         It's always the same, unless you change it with warriorname set.
         You can view it with warriorname get.
         
@@ -31,7 +33,8 @@ class Warriors(Cog):
 
     @warriorname.command(name="get")
     async def wcgetname(self, ctx, mention: str | discord.User = None):
-        """Generates your warrior name.
+        """Gets your warrior name.
+
         It's always the same, unless you change it with warriorname set.
         
         - `mention`
@@ -54,6 +57,7 @@ class Warriors(Cog):
     @wcsetname.command(name="prefix")
     async def wcsetprefix(self, ctx, prefix: str):
         """Sets the prefix for your warrior name.
+
         Legal name changer?!?!?
         
         - `prefix`
@@ -73,6 +77,7 @@ class Warriors(Cog):
     @wcsetname.command(name="suffix")
     async def wcsetsuffix(self, ctx, suffix: str):
         """Sets the suffix for your warrior name.
+
         Legal name changer?!?!?
         
         - `suffix`
@@ -92,6 +97,7 @@ class Warriors(Cog):
     @wcsetname.command(name="clan")
     async def wcsetclan(self, ctx, clan: str):
         """Sets your clan.
+        
         Legal home changer?!?!?
         
         - `clan`
