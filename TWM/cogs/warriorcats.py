@@ -20,6 +20,15 @@ class Warriors(Cog):
         No arguments."""
         return
 
+    @warriorname.group(invoke_without_command=True, name="set")
+    async def wcsetname(self, ctx):
+        """Commands to do with your warrior name.
+        It's always the same, unless you change it with warriorname set.
+        You can view it with warriorname get.
+        
+        No arguments."""
+        return
+
     @warriorname.command(name="get")
     async def wcgetname(self, ctx, mention: str | discord.User = None):
         """Generates your warrior name.
@@ -42,7 +51,7 @@ class Warriors(Cog):
         random.seed(a=None, version=2)
         
     
-    @warriorname.command(name="set prefix")
+    @wcsetname.command(name="prefix")
     async def wcsetprefix(self, ctx, prefix: str):
         """Sets the prefix for your warrior name.
         Legal name changer?!?!?
@@ -57,11 +66,11 @@ class Warriors(Cog):
         if prefix in normal_prefixes:
             profile["wcprefix"] = prefix
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
-            await ctx.send(f"Prefix set to {prefix}")
+            await ctx.send(f"Prefix set to {prefix}.")
         else:
             await ctx.send("That's not a valid prefix. Only prefixes from the series are allowed.")
             
-    @warriorname.command(name="set suffix")
+    @wcsetname.command(name="suffix")
     async def wcsetsuffix(self, ctx, suffix: str):
         """Sets the suffix for your warrior name.
         Legal name changer?!?!?
@@ -76,11 +85,11 @@ class Warriors(Cog):
         if suffix in normal_suffixes:
             profile["wcsuffix"] = suffix
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
-            await ctx.send(f"Suffix set to {suffix}")
+            await ctx.send(f"Suffix set to {suffix}.")
         else:
             await ctx.send("That's not a valid suffix. Only suffixes from the series are allowed.")
             
-    @warriorname.command(name="set clan")
+    @wcsetname.command(name="clan")
     async def wcsetclan(self, ctx, clan: str):
         """Sets your clan.
         Legal home changer?!?!?
@@ -90,12 +99,12 @@ class Warriors(Cog):
         profile = fill_profile(ctx.author.id)
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
-        normal_clans = placeholders["clan"]
+        normal_clans = placeholders["clans"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
             profile["wcclan"] = clan
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
-            await ctx.send(f"Clan set to {clan}")
+            await ctx.send(f"Clan set to {clan}.")
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
