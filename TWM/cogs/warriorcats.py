@@ -1,6 +1,5 @@
 import random
 import discord
-import ascyncio
 from helpers.sv_config import get_config
 from discord.ext import commands
 from discord.ext.commands import Cog
