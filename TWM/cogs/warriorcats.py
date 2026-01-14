@@ -1,5 +1,6 @@
 import random
 import discord
+import yaml
 from helpers.sv_config import get_config
 from discord.ext import commands
 from discord.ext.commands import Cog
@@ -8,9 +9,18 @@ from helpers.placeholders import random_msg
 
 class Warriors(Cog):
     """Stuff I added because I'm too addicted."""
-    
+
     @commands.group(invoke_without_command=True)
-    async def warriorname(self, ctx, mention: str | discord.User = None):
+    async def warriorname(self, ctx):
+        """Commands to do with your warrior name.
+        It's always the same, unless you change it with warriorname set.
+        You can view it with warriorname get.
+        
+        No arguments."""
+        return
+
+    @warriorname.command(name="get")
+    async def wcgetname(self, ctx, mention: str | discord.User = None):
         """Generates your warrior name.
         It's always the same, unless you change it with warriorname set.
         
@@ -32,7 +42,7 @@ class Warriors(Cog):
         
     
     @warriorname.command(name="set prefix")
-    async def warriorname_set_prefix(self, ctx, prefix: str):
+    async def wcsetprefix(self, ctx, prefix: str):
         """Sets the prefix for your warrior name.
         Legal name changer?!?!?
         
@@ -49,7 +59,7 @@ class Warriors(Cog):
             await ctx.send("That's not a valid prefix. Only prefixes from the series are allowed.")
             
     @warriorname.command(name="set suffix")
-    async def warriorname_set_suffix(self, ctx, suffix: str):
+    async def wcsetsuffix(self, ctx, suffix: str):
         """Sets the suffix for your warrior name.
         Legal name changer?!?!?
         
@@ -66,7 +76,7 @@ class Warriors(Cog):
             await ctx.send("That's not a valid suffix. Only suffixes from the series are allowed.")
             
     @warriorname.command(name="set clan")
-    async def warriorname_set_prefix(self, ctx, prefix: str):
+    async def wcsetclan(self, ctx, prefix: str):
         """Sets your clan.
         Legal home changer?!?!?
         
