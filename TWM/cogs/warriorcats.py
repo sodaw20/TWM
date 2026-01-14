@@ -71,7 +71,7 @@ class Warriors(Cog):
         prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
         suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
         clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
-        clanemoji = (placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan) if profile["wcclan"] in placeholders["clans"] else clan
+        clanemoji = (placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan) if (profile["wcclan"] if profile["wcclan"] else random_msg("random_clans")) in placeholders["clans"] else clan
         if you:
             await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         else:
