@@ -155,6 +155,9 @@ def fill_profile(userid):
         "aliases": [],
         "timezone": None,
         "replypref": None,
+        "wcprefix": None,
+        "wcsuffix": None,
+        "wcclan": None,
     }
     if not profile:
         profile = stockprofile
