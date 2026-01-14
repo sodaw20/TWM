@@ -13,7 +13,7 @@ from helpers.sv_config import get_config
 class Warriors(Cog):
     """Stuff I added because I'm too addicted."""
 
-    @commands.group(invoke_without_command=True)
+    @commands.group(invoke_without_command=True, alias="wcn")
     async def warriorname(self, ctx):
         """Commands to do with your warrior name.
 
@@ -24,7 +24,7 @@ class Warriors(Cog):
         await ctx.send("Send `pls warriorname get @user` to get their warrior name! Leave @user blank to check yours.")
         return
 
-    @warriorname.group(invoke_without_command=True, name="set")
+    @warriorname.group(invoke_without_command=True, name="set", alias="s")
     async def wcsetname(self, ctx):
         """Commands to do with your warrior name.
 
@@ -34,7 +34,7 @@ class Warriors(Cog):
         No arguments."""
         return
 
-    @warriorname.command(name="get")
+    @warriorname.command(name="get", alias="g")
     async def wcgetname(self, ctx, mention: str = None):
         """Gets your warrior name.
 
@@ -79,7 +79,7 @@ class Warriors(Cog):
         random.seed(a=None, version=2)
         
     
-    @wcsetname.command(name="prefix")
+    @wcsetname.command(name="prefix", alias="p")
     async def wcsetprefix(self, ctx, prefix: str):
         """Sets the prefix for your warrior name.
 
@@ -99,7 +99,7 @@ class Warriors(Cog):
         else:
             await ctx.send("That's not a valid prefix. Only prefixes from the series are allowed.")
             
-    @wcsetname.command(name="suffix")
+    @wcsetname.command(name="suffix", alias="s")
     async def wcsetsuffix(self, ctx, suffix: str):
         """Sets the suffix for your warrior name.
 
@@ -119,7 +119,7 @@ class Warriors(Cog):
         else:
             await ctx.send("That's not a valid suffix. Only suffixes from the series are allowed.")
             
-    @wcsetname.command(name="clan")
+    @wcsetname.command(name="clan", alias="c")
     async def wcsetclan(self, ctx, clan: str):
         """Sets your clan.
 
@@ -148,8 +148,17 @@ class Warriors(Cog):
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
-    #@commands.command()
-    #async def warriorappearance(self, ctx):
+    @commands.group(alias="wca")
+    async def warriorappearance(self, ctx):
+        """Commands to do with your warrior appearance.
+
+        It's always the same, unless you change it with warriorappearance set.
+        You can view it with warriorappearance get.
         
+        No arguments."""
+        await ctx.send("Send `pls warriorappearance get @user` to get their warrior appearance! Leave @user blank to check yours.")
+        return
+    
+
 async def setup(bot):
     await bot.add_cog(Warriors(bot))
