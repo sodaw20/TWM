@@ -24,7 +24,7 @@ class Warriors(Cog):
         await ctx.send("Send `pls warriorname get @user` to get their warrior name! Leave @user blank to check yours.")
         return
 
-    @warriorname.group(invoke_without_command=True, name="set", aliases="s")
+    @warriorname.group(invoke_without_command=True, name="set", aliases=["s"])
     async def wcsetname(self, ctx):
         """Commands to do with your warrior name.
 
