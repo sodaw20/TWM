@@ -24,7 +24,6 @@ import re as ren
 import html
 import json
 import config
-import random
 
 
 class Basic(Cog):
@@ -1167,88 +1166,68 @@ class Basic(Cog):
     @commands.guild_only()
     @commands.command()
     async def gamble(self, ctx, roll: int = None):
-        '''LET'S GO GAMBLING!
+        """LET'S GO GAMBLING!
         AWW DANG IT. AWW DANG IT. AWW DANG IT.
         .1% chance of a special happening.
         1% chance of being kicked.
         
         - `roll`
-        A number between 1 and 1000 to roll. Will be random if not supplied. Optional.'''
+        A number between 1 and 1000 to roll. Will be random if not supplied. Optional."""
         winnum = random.randint(1, 1000)
         losenum = [random.randint(1, 1000) for _ in range(10)]
         distlose = abs(roll - min(losenum, key=lambda x:abs(x-roll)))
 
-        msg = await ctx.send(f"Now rolling with {roll}")
+        msg = await ctx.send(f"[Now rolling with {roll}]")
         if abs(winnum - roll) <= 500:
             await asyncio.sleep(1)
-            await msg.edit(content=f"Now rolling with {roll}.")
+            await msg.edit(content=f"[Now rolling with {roll}.]")
             if abs(winnum - roll) <= 250:
                 await asyncio.sleep(1)
-                await msg.edit(content=f"Now rolling with {roll}..")
+                await msg.edit(content=f"[Now rolling with {roll}..]")
                 if abs(winnum - roll) <= 100:
                     await asyncio.sleep(1)
-                    await msg.edit(content=f"Now rolling with {roll}...")
+                    await msg.edit(content=f"[Now rolling with {roll}...]")
                     if abs(winnum - roll) <= 50:
                         await asyncio.sleep(1)
-                        await msg.edit(content=f"Now rolling with {roll}....")
+                        await msg.edit(content=f"[Now rolling with {roll}....]")
                         if abs(winnum - roll) <= 25:
                             await asyncio.sleep(1)
-                            await msg.edit(content=f"Now rolling with {roll}.....")
+                            await msg.edit(content=f"[Now rolling with {roll}.....]")
                             if abs(winnum - roll) <= 10:
                                 await asyncio.sleep(1)
-                                await msg.edit(content=f"Now rolling with {roll}......")
+                                await msg.edit(content=f"[Now rolling with {roll}......]")
 
         await asyncio.sleep(1)
         if roll != winnum and not roll in losenum and not roll == 67:
-            await msg.edit(content=f"You didn't win anything...\nYour roll `{roll}` was `{abs(winnum - roll)}` off from the correct number. It was also `{distlose}` off from the nearest bad number.\nPlease try again in a bit... ")
+            await msg.edit(content=f"[You didn't win anything...\nYour roll `{roll}` was `{abs(winnum - roll)}` off from the correct number. It was also `{distlose}` off from the nearest bad number.]\n[Please try again in a bit...]")
             await asyncio.sleep(config.gamblecooldown)
-            await ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
+            await ctx.author.send(f"[Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.]")
         elif roll in losenum:
-            await msg.edit(content=f"You rolled a bad number, ouch. Give me ten seconds to load the revolver, hold still...")
+            await msg.edit(content=f"[You rolled a bad number, ouch. Give me ten seconds to load the revolver, hold still...]")
             await asyncio.sleep(10)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
-                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="[YOU HAVE FAILED THE CHALLENGE]")
             else:
-                ctx.author.kick(reason="YOU HAVE FAILED THE CHALLENGE")
+                ctx.author.kick(reason="[YOU HAVE FAILED THE CHALLENGE]")
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
+            ctx.author.send(f"[Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.]")
         elif roll == winnum:
-            await msg.edit(content=f"You won the gambling, {ctx.author.mention}!\nI gave you the role.")
+            await msg.edit(content=f"[You won the gambling, {ctx.author.mention}!\nI gave you the role.]")
             await self.bot.add_roles(ctx.author, ctx.guild.get_role(get_config(ctx.guild.id, "staff", "gamblewinrole")))
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.")
+            ctx.author.send(f"[Hey, you can gamble again. Remember that 99% of gamblers quit before they hit it big.]")
         elif roll == 67:
-            await msg.edit(content=f"...")
+            await msg.edit(content=f"[...]")
             await asyncio.sleep(5)
-            await ctx.send("No. I'm not doing this. Say goodbye.")
+            await ctx.send("[No. I'm not doing this. Say goodbye.]")
             await asyncio.sleep(5)
             if not get_config(ctx.guild.id, "staff", "kickongambleloss"):
-                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="YOU HAVE FAILED THE CHALLENGE")
+                await ctx.author.timeout(timedelta(seconds=config.gamblecooldown), reason="[YOU HAVE FAILED THE CHALLENGE]")
             else:
-                ctx.author.kick(reason="NO.")
+                ctx.author.kick(reason="[NO.]")
             asyncio.sleep(config.gamblecooldown)
-            ctx.author.send(f"Hey, you can gamble. Just, don't do it again.")
+            ctx.author.send(f"[Hey, you can gamble. Just, don't do it again.]")
 
-    @commands.command()
-    async def warriorname(self, ctx, mention: str | discord.User = None):
-        '''Generates your warrior name.
-        It's always the same.
-        
-        - `mention`
-        The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional.'''
-        if mention == None:
-            mention = ctx.author.mention
-
-        if isinstance(mention, discord.User):
-            random.seed(a=mention.id, version=2)
-        elif mention == "random":
-            random.seed(a=None, version=2)
-        else:
-            random.seed(a=mention, version=2)
-        name = random_msg("prefix")+random_msg("suffix")
-        await ctx.send(name)
-        random.seed(a=None, version=2)
-
-
+       
 async def setup(bot):
     await bot.add_cog(Basic(bot))

@@ -172,10 +172,10 @@ async def on_command_error(ctx, error):
         bot.errors.append((err, ctx, ()))
         log.error(f"Code error in command {ctx.command}...\n{err_tb}")
         return await ctx.send(
-            "This command broke!"
-            + f"\n{ctx.guild.get_member(1040438267859976262).mention} I NEED HELP!!"
+            "[This command broke!]"
+            + f"\n[{ctx.guild.get_member(1040438267859976262).mention} I NEED HELP!!]"
             if ctx.guild and ctx.guild.get_member(1040438267859976262)
-            else "\nSorry! Somthing went wrong. I'll tell Rain for you!"
+            else "\n[Sorry! Somthing went wrong. I'll tell Rain for you!]"
         )
     elif isinstance(error, commands.NoPrivateMessage):
         return await ctx.send(random_msg("err_serversonly"))
@@ -194,7 +194,7 @@ async def on_command_error(ctx, error):
         return await ctx.send(random_msg("err_perms") + f"```diff\n+ {roles_needed}```")
     elif isinstance(error, commands.CommandOnCooldown):
         return await ctx.send(
-            random_msg("err_cooldown") + f"{error.retry_after:.1f} seconds."
+            random_msg("err_cooldown, time = f"{error.retry_after:.1f} seconds.")
         )
     elif isinstance(error, commands.CheckFailure):
         return await ctx.send(random_msg("err_checkfail"))

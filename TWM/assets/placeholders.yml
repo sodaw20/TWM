@@ -1,6 +1,6 @@
 # If you want to customize this file, COPY this file and put it into the data/ folder.
 
-# By default, Sangou will fill in any word wrapped in {} with a shorthand from here.
+# By default, TWM will fill in any word wrapped in {} with a shorthand from here.
 shorthands:
     normal: <:en:1397723699087540274>
     angry: <:en_what:1392360445767323658>
@@ -15,16 +15,31 @@ shorthands:
     huh: <:en_huh:1397723626094202900>
     love: <:en_83c:1397723392953815040>
     squares: <:squares:1456173144758030380>
+    
+    # Clan emojis.
+    thunderclan: <:thunderclan:1461035358396350726>
+    shadowclan: <:shadowclan:1461035421277356114>
+    windclan: <:windclan:1461035643806154908>
+    riverclan: <:riverclan:1461036176994603244>
+    skyclan: <:skyclan:1461036290953711805>
+    starclan: <:starclan:1461038426043191298>
+    kittypet: <:kittypet:0000000000000000000>
+    rouge: <:rouge:1461036498467160257>
+    tribe: <:tribe:1461036448093569024>
+    bloodclan: <:bloodclan:1461036567299621084>
+    darkforest: <:darkforest:0000000000000000000>
+    loner: <:loner:1461037160521007321>
+    
 
-# A list of things that Sangou will "listen" to.
-# For example, "Listening to the validity of trans people".
+# A list of things that The World Machine will "listen" to.
+# For example, "Listening to Niko eating pancakes".
 games:
   - to phosphor shrimp swim
   - a barrens gas leak
   - a factory press
   - a fire inside a broken tv
-  - silver playing chess
-  - rowbot's rusty joints moving
+  - Silver playing chess
+  - Rowbot's rusty joints moving
   - T H E   S Q U A R E S  appearing
   - Proto's water cooling system
   - Calamus shouting for Alula
@@ -39,7 +54,7 @@ games:
   - clothes drying in a rack
   - a boat floating
   - the waves of the sea
-  - magpie's moving his wagon 
+  - Magpie's moving his wagon 
   - the Shepard teleporting
   - a ram screaming into the wind
   - a robot collecting water samples
@@ -54,8 +69,8 @@ games:
   - someone playing the piano in their apartment
   - the penguin saying h e l l o
   - a refrigerator running in an apartment
-  - ling making pancakes
-  - vendors at the street
+  - Ling making pancakes
+  - Vendors at the street
   - Kip using glitter glue
   - someone taking a photo in the photo center
   - red phosphorus chemically reacting
@@ -74,209 +89,232 @@ games:
 
 # An error message for commands that can be used in servers only.
 err_serversonly:
-  - "{huh} Hey, you have to do this in a server... I don't know what server you want..."
-  - "{dizzy} Where do you want me to do this at?"
+  - "{huh} [Hey, you have to do this in a server... I don't know what server you want...]"
+  - "{dizzy} [Where do you want me to do this at?]"
 
 # An error message for commands that can be used in DMs only.
 err_dmsonly:
-  - "{normal} You can only do this in DMs, you know."
-  - "{huh} Could we please do this somewhere else? How about DMs..."
+  - "{normal} [You can only do this in DMs, you know.]"
+  - "{huh} [Could we please do this somewhere else? How about DMs...]"
 
-# An error message for if Sangou cannot understand the quotes in a command.
+# An error message for if TWM cannot understand the quotes in a command.
 err_quotes:
-  - "{dizzy} I didn't get that, your quotes are off..."
-  - "{angry} Hey, check your quotes! I can't work with this input..."
-  - "{huh} Wait... Could you explain that again? Your quotes are confusing me..."
+  - "{dizzy} [I didn't get that, your quotes are off...]"
+  - "{angry} [Hey, check your quotes! I can't work with this input...]"
+  - "{huh} [Wait... Could you explain that again? Your quotes are confusing me...]"
 
 # An error message for unauthorized users missing a specific role.
 err_role:
-  - "{angry} No, I'm not listening to you! You don't have the role you need for that."
-  - "{sleep} Nope. Didn't hear that. I can only hear people with a role saying that."
-  - "{unamused} You seem to be missing a role..."
+  - "{angry} [No, I'm not listening to you! You don't have the role you need for that.]"
+  - "{sleep} [Nope. Didn't hear that. I can only hear people with a role saying that.]"
+  - "{unamused} [You seem to be missing a role...]"
 
 # An error message for when the bot is missing permissions.
 err_perms:
-  - "{huh} I can't do that, I don't have the permissions for that. I need these."
-  - "{fear} I tried, but it didn't work! It told me I needed these permissions..."
-  - "{unamused} How am I supposed to do that without permissions... I need these."
-  - "{cry} You ask me to do things I cant do..."
+  - "{huh} [I can't do that, I don't have the permissions for that. I need these.]"
+  - "{fear} [I tried, but it didn't work! It told me I needed these permissions...]"
+  - "{unamused} [How am I supposed to do that without permissions... I need these.]"
+  - "{cry} [You ask me to do things I cant do...]"
 
 # An error message for when a command is on cooldown.
 err_cooldown:
-  - "{dizzy} Hey, slow down, I can't go that fast... Give me "
-  - "{angry} Stop trying to overwork me, I'm on a cooldown... Try again in "
-  - "{smug} Sure, I'll get to that... in "
-  - "{sleep} Im tired... I'll be awake in "
+  - "{dizzy} [Hey, slow down, I can't go that fast... Give me {time}]"
+  - "{angry} [Stop trying to overwork me, I'm on a cooldown... Try again in {time}]"
+  - "{smug} [Sure, I'll get to that... in {time}]"
+  - "{sleep} [Im tired... I'll be awake in {time}]"
 
 # An error message for when a command is missing an attachment.
 err_noattachment:
-  - "{huh} You didn't give me an attachment to work with..."
-  - "{angry} It's not funny, I need an attachment to work with."
-  - "{unamused} W-With what attachment?"
-  - "{drunk} Ooo! Is the attachment invisible?"
+  - "{huh} [You didn't give me an attachment to work with...]"
+  - "{angry} [It's not funny, I need an attachment to work with.]"
+  - "{unamused} [W-With what attachment?]"
+  - "{drunk} [Ooo! Is the attachment invisible?]"
 
 # A generic error message for failed checks. Used for manager commands mostly.
 err_checkfail:
-  - "{normal} Lalala, I can't hear you. You're unauthorized."
-  - "{sleep} ...Huh? Who are you? You can't ask me to do that."
-  - "{unamused} Why am I going to do that for you...? I don't know you."
-  - "{sleep} What? I can't hear you..."
+  - "{normal} [Lalala, I can't hear you. You're unauthorized.]"
+  - "{sleep} [...Huh? Who are you? You can't ask me to do that.]"
+  - "{unamused} [Why am I going to do that for you...? I don't know you.]"
+  - "{sleep} [What? I can't hear you...]"
 
 # An error message for if the bot needs to DM you, but cannot.
 err_dmfail:
-  - "{fear} I can't do that, you won't let me DM you! Check your DM settings..."
-  - "{unamused} Hey, I can't DM you... check your settings first."
+  - "{fear} [I can't do that, you won't let me DM you! Check your DM settings...]"
+  - "{unamused} [Hey, I can't DM you... check your settings first.]"
 
 # An error message for if a user given does not exist.
 err_usernotfound:
-  - "{huh} I don't know who that user is..."
-  - "{normal} Discord API says that's not a user."
-  - "{unamused} Hey, that isn't a user. It doesn't exist."
-  - "{dizzy} Who.. Who is that?"
+  - "{huh} [I don't know who that user is...]"
+  - "{normal} [Discord API says that's not a user.]"
+  - "{unamused} [Hey, that isn't a user. It doesn't exist.]"
+  - "{dizzy} [Who.. Who is that?]"
 
 # An error message for if a user given is not on the server.
 err_membernotfound:
-  - "{normal} That's not a member on this server."
-  - "{huh} You either gave me something wrong, or that member isn't on this server..."
-  - "{normal} I looked, that's not a member here."
-  - "{sleep} I don't see them here..."
+  - "{normal} [That's not a member on this server.]"
+  - "{huh} [You either gave me something wrong, or that member isn't on this server...]"
+  - "{normal} [I looked, that's not a member here.]"
+  - "{sleep} [I don't see them here...]"
 
 # === WARNINGS ===
 
 # Used if you try to use a dangerous command on yourself.
 # {authorname} = Name of message author.
 warn_targetself:
-  - "{angry} For the sake of everyone else, {authorname}, don't do this to yourself!"
-  - "{unamused} {authorname}, you're a test subject, but this isn't safe..."
-  - "{normal} {authorname}, I'm not doing that."
+  - "{angry} [For the sake of everyone else, {authorname}, don't do this to yourself!]"
+  - "{unamused} [{authorname}, you're a test subject, but this isn't safe...]"
+  - "{normal} [{authorname}, I'm not doing that.]"
 
 # Used if you try to use a dangerous command on himself.
 # {authorname} = Name of message author.
 warn_targetbot:
-  - "{smug} I'm sorry {authorname}, I'm afraid I can't do that."
-  - "{unamused} {authorname}, I am not a test subject like you."
-  - "{angry} Please leave me alone, {authorname}!"
+  - "{smug} [I'm sorry {authorname}, I'm afraid I can't do that.]"
+  - "{unamused} [{authorname}, I am not a test subject like you.]"
+  - "{angry} [Please leave me alone, {authorname}!]"
   
 # Used if a command times out.
 warn_timedout:
-  - "{normal} Your command timed out."
-  - "{sleep} I got bored waiting, so I timed out your command."
-  - "{angry} I can't wait for your response forever! Command timed out."
+  - "{normal} [Your command timed out.]"
+  - "{sleep} [I got bored waiting, so I timed out your command.]"
+  - "{angry} [I can't wait for your response forever! Command timed out.]"
 
 # === INFORMATION ===
 
 # Used when pls quit is used.
 quit_deaths:
-  - "{cry} Not again! Why must you do this again!"
-  - "{sleep} I'm already asleep, this changes nothing..."
-  - "{huh} What? Drop the lightbulb? Okay..."
-  - "{eat} Yay, lunch break!"
-  - "{drunk} What, just because I had one drink? Boo..."
-  - "{smug} You're not safe, you know..."
-  - "{normal} Bathroom break!"
+  - "{cry} [Not again! Why must you do this again!]"
+  - "{sleep} [I'm already asleep, this changes nothing...]"
+  - "{huh} [What? Drop the lightbulb? Okay...]"
+  - "{eat} [Yay, lunch break!]"
+  - "{drunk} [What, just because I had one drink? Boo...]"
+  - "{smug} [You're not safe, you know...]"
+  - "{normal} [Bathroom break!]"
 
 # Used in pls errors when there are no errors.
 errors_noerrors:
-  - "{eat} You don't have any errors yet."
-  - "{sleep} I haven't seen any errors happen yet..."
+  - "{eat} [You don't have any errors yet.]"
+  - "{sleep} [I haven't seen any errors happen yet...]"
 
 # Used with pls hello.
 hello_hello:
-  - "{normal} Helloooooo."
-  - "{eat} Hello. What's up?"
-  - "{sleep} ...Wha?"
+  - "{normal} [Helloooooo.]"
+  - "{eat} [Hello. What's up?]"
+  - "{sleep} [...Wha?]"
+  - "{unamused} [What time is it?]"
 
 # === COMPONENTS ===
 
 # Used for messages with embeds.
 embed_msg:
-  - "{normal} If you can't see this, check your message link settings."
-  - "{eat} Here's your embed. Check your settings if you can't see it."
+  - "{normal} [If you can't see this, check your message link settings.]"
+  - "{eat} [Here's your embed. Check your settings if you can't see it.]"
 
 # == BASIC.PY ==
 
 # Message for 'pls kill {someone}'
 kill_msg_targeted:
- - "{person2} returned the sun to the tower."
- - "{person2} gets crushed by the refuge elevator."
- - "{person1} tied a weight to {person2} and drops them in the middle of the phosphor sea."
- - "{person1} traps {person2} in an unknown closed room of the ruins without food or water."
- - "{person1} got {person2} to invoke the ***wrath of Alula***. It didn't work well for {person2}"
- - "{person2} tries to steal from Magpie and gets shot ten times."
- - "{person2} tried to meet the Author."
- - "{person2} thought that the controls for Cedrick's plane would be intuitive."
- - "{person1} told {person2} about George's seventh personality."
- - "{person2} tried Plight's routine for a day."
- - "{person2} tried to hack Silver."
- - "{person2} never left the house Niko woke up in."
- - "{person2} took a sip out of Plight's coffee."
- - "{person1} pushed {person2} into the squares. {squares}"
- - "{person2} convinced Nightmargin to personally remove them from the game."
- - "{person1} pushed {person2} who fell to their death while exploring the mines."
- - "{person2} thought it would be a good idea to take a ride in one of the convenyor belts in the factory."
- - "{person2} tried to tell The World Machine a paradox."
- - "{person1} didnt warn {person2} about the phospor gas."
- - "{person2} tried to insert Super Mario Bros. into Prototype's disk drive."
- - "{person2} tried to run doom on The World Machine."
- - "{person1} dared {person2} to take Niko's pancakes."
- - "{person2} tried to see the Shepard moving."
- - "{person2} tried to stay up late and talk to the Watcher."
- - "{person2} told Niko they were a cat."
- - "{person2} constantly didn't get permission to rest from {person1}"
- - "{person2} looked a little *too much* like pancakes."
- - "{person2} tried to understand the power of  T H E   R A M."
- - "{person2} failed to make an elevator button."
- - "{person2} tried to figure out how OneShot knows their name."
- - "{person2} tried to kidnap a ram."
- - "{person2} tried to fry Alula."
- - "{person2} said  h e l l o  to the penguin."
- - "{person2} didn't reply  h e l l o  to the penguin."
- - "{person2} got a molotov thrown at them by {person1}"
- - "{person2} found a pipebomb in their mailbox that was sent by {person1}"
- - "{person1} told Niko to commit arson on {person2}."
- - "{person2} asked The World Machine if there was a seahorse emoji."
+ - "[{person2} returned the sun to the tower.]"
+ - "[{person2} gets crushed by the refuge elevator.]"
+ - "[{person1} tied a weight to {person2} and drops them in the middle of the phosphor sea.]"
+ - "[{person1} traps {person2} in an unknown closed room of the ruins without food or water.]"
+ - "[{person1} got {person2} to invoke the ***wrath of Alula***. It didn't work well for {person2}]"
+ - "[{person2} tries to steal from Magpie and gets shot ten times.]"
+ - "[{person2} tried to meet the Author.]"
+ - "[{person1} told {person2} that the controls for Cedrick's plane would be intuitive.]"
+ - "[{person1} told {person2} about George's seventh personality.]"
+ - "[{person2} tried Plight's routine for a day.]"
+ - "[{person2} tried to hack Silver.]"
+ - "[{person2} never left the house Niko woke up in.]"
+ - "[{person2} took a sip out of Plight's coffee.]"
+ - "{squares} [{person1} pushed {person2} into the squares.] {squares}"
+ - "[{person2} convinced Nightmargin to personally remove them from the game.]"
+ - "[{person1} pushed {person2} who fell to their death while exploring the mines.]"
+ - "[{person2} thought it would be a good idea to take a ride in one of the convenyor belts in the factory.]"
+ - "[{person2} tried to tell The World Machine a paradox.]"
+ - "[{person1} didnt warn {person2} about the phospor gas.]"
+ - "[{person2} tried to insert Super Mario Bros. into Prototype's disk drive.]"
+ - "[{person2} tried to run doom on The World Machine.]"
+ - "[{person1} dared {person2} to take Niko's pancakes.]"
+ - "[{person2} tried to see the Shepard moving.]"
+ - "[{person2} tried to stay up late and talk to the Watcher.]"
+ - "[{person2} told Niko they were a cat.]"
+ - "[{person2} constantly didn't get permission to rest from {person1}]"
+ - "[{person2} looked a little *too much* like pancakes.]"
+ - "[{person2} tried to understand the power of  T H E   R A M.]"
+ - "[{person2} failed to make an elevator button.]"
+ - "[{person2} tried to figure out how OneShot knows their name.]"
+ - "[{person2} tried to kidnap a ram.]"
+ - "[{person2} tried to fry Alula.]"
+ - "[{person2} said  h e l l o  to the penguin.]"
+ - "[{person2} didn't reply  h e l l o  to the penguin.]"
+ - "[{person2} got a molotov thrown at them by {person1}]"
+ - "[{person2} found a pipebomb in their mailbox that was sent by {person1}]"
+ - "[{person1} told Niko to commit arson on {person2}.]"
+ - "[{person2} asked The World Machine if there was a seahorse emoji.]"
 
 # Message for 'pls kill'
 kill_msg:
- - "Kill you? Okay then.. *Asks Niko for a pipebomb before throwing it at you*"
- - "Can I ask why? Well, if you say so.. *Grabs a knife and stabs you 23 times*"
- - "How down bad are you? I'm not going to do that."
- - "No."
+ - "[Kill you? Okay then..] *Asks Niko for a pipebomb before throwing it at you*"
+ - "[Can I ask why? Well, if you say so..] *Grabs a knife and stabs you 23 times*"
+ - "[How down bad are you? I'm not going to do that.]"
+ - "[No. I'n not going to kill you.]"
 
 # Message for 'pls revive {someone}'
 revive_msg_targeted:
- - "{person1} convinced The World Machine to rollback the save and revive {person2}."
- - "{person2} was added into the game by {person1}."
- - "{person1} gave Niko some pancakes and asked them to revive {person2}"
- - "{person1} shattered the sun, bringing {person2} back home."
- - "{person1} got Maize to bless {person2}"
+ - "[{person1} convinced The World Machine to rollback the save and revive {person2}.]"
+ - "[{person2} was added into the game by {person1}.]"
+ - "[{person1} gave Niko some pancakes and asked them to revive {person2}]"
+ - "[{person1} shattered the sun, bringing {person2} back home.]"
+ - "[{person1} got Maize to bless {person2}]"
 
 # Message for 'pls revive'
 revive_msg:
- - "How did you die? *Sighs and reives you*."
+ - "[How did you die?] *Sighs and revives you*."
 
 # Message for 'pls sacrifice {someone}'
 sacrifice_msg_targeted:
- - "{person1} turned {person2} into one of the keys to the solstice ending."
- - "{person1} sacrificed {person2} in the name of Niko and The World Machine."
+ - "[{person1} turned {person2} into one of the keys to the solstice ending.]"
+ - "[{person1} sacrificed {person2} in the name of Niko and The World Machine.]"
 
 # Message for 'pls sacrifice'
 sacrifice_msg:
- - "I can't sacrifice myself in the name of myself.."
+ - "[I can't sacrifice someone in the name of myself..]"
 
 # Message for 'pls hug {someone}'
 hug_msg_targeted:
- - "in an act of care, {person1} pulls {person2} towards them and gently hugs them."
- - "{person1} wraps their arms around {person2} and pats their back."
- - "{person2} smiles greatfully as {person1} gives them a long hug"
- - "{person1} desparately hugs at {person2}'s legs as they pull grumpily away, but to no avail."
- - "{person1} hands {person2} a tissue before giving them a simple hug." 
+ - "[In an act of care, {person1} pulls {person2} towards them and gently hugs them.]"
+ - "[{person1} wraps their arms around {person2} and pats their back.]"
+ - "[{person2} smiles greatfully as {person1} gives them a long hug.]"
+ - "[{person1} desparately hugs at {person2}'s legs as they pull grumpily away, but to no avail.]"
+ - "[{person1} hands {person2} a tissue before giving them a simple hug.]" 
 
 # Message for 'pls hug'
 hug_msg:
- - "I mean- if you really need it, but I'm not one to give the best hugs. here we go then.. *hugs*"
- - "Oh, you sure? I'll give a hug any time, but I wasn't exactly made for it.. *But wait, this is literally in my code??* Never mind, let me just hug you already {love} *hugs*"
- - "Uhm- okay! I'll hug you {love} *hugs*"
+ - "[I mean- if you really need it, but I'm not one to give the best hugs. here we go then..] *hugs*"
+ - "[Oh, you sure? I'll give a hug any time, but I wasn't exactly made for it..] *But wait, this is literally in my code??* Never mind, let me just hug you already {love} *hugs*"
+ - "[Uhm- okay! I'll hug you!] {love} *hugs*"
+
+# Clans that can be randomly chosen by the generator.
+random_clans:
+ - "{thunderclan} ThunderClan"
+ - "{shadowclan} ShadowClan"
+ - "{windclan} WindClan"
+ - "{riverclan} RiverClan"
+ - "{skyclan} SkyClan"
+
+# Clans that can be chosen by the user.
+clans:
+ - "{thunderclan} ThunderClan"
+ - "{shadowclan} ShadowClan"
+ - "{windclan} WindClan"
+ - "{riverclan} RiverClan"
+ - "{skyclan} SkyClan"
+ - "{starclan} StarClan"
+ - "{kittypet} Kittypet"
+ - "{tribe} The Tribe Of Rushing Water"
+ - "{bloodclan} BloodClan"
+ - "{darkforest} The Dark Forest"
+ - "{loner} Loner"
 
 prefix:
  - "Acorn"
