@@ -194,7 +194,7 @@ async def on_command_error(ctx, error):
         return await ctx.send(random_msg("err_perms") + f"```diff\n+ {roles_needed}```")
     elif isinstance(error, commands.CommandOnCooldown):
         return await ctx.send(
-            random_msg("err_cooldown, time = f"{error.retry_after:.1f} seconds.")
+            random_msg("err_cooldown", time = f"{error.retry_after:.1f} seconds.")
         )
     elif isinstance(error, commands.CheckFailure):
         return await ctx.send(random_msg("err_checkfail"))
