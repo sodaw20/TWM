@@ -19,6 +19,7 @@ class Warriors(Cog):
         You can view it with warriorname get.
         
         No arguments."""
+        await ctx.send("Send `pls warriorname get @user` to get their warrior name! Leave @user blank to check yours.")
         return
 
     @warriorname.group(invoke_without_command=True, name="set")
@@ -41,6 +42,8 @@ class Warriors(Cog):
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional."""
         if mention == None:
             mention = ctx.author.mention
+        with open("assets/placeholders.yml", "r") as f:
+            placeholders = yaml.safe_load(f)
         profile = fill_profile(ctx.author.id)
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
@@ -52,7 +55,8 @@ class Warriors(Cog):
         prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
         suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
         clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
-        await ctx.send(f"Your warrior name is {prefix+suffix} from {clan}.")
+        clanemoji = placeholders["clan_emojis"][clan]+ " " + clan if profile["wcclan"] == None else clan
+        await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
     
