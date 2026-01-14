@@ -7,7 +7,7 @@ from discord.ext.commands import Cog
 from helpers.datafiles import fill_profile
 from helpers.placeholders import random_msg
 
-class warrriorcats(Cog)
+class Warriors(Cog):
     """Stuff I added because I'm too addicted."""
     
     @commands.command()
@@ -27,7 +27,7 @@ class warrriorcats(Cog)
         else:
             random.seed(a=mention, version=2)
         name = random_msg("prefix")+random_msg("suffix")
-	clan = random_msg("clan")
+        clan = random_msg("clan")
         await ctx.send(f"Your warrior name is {name} from {clan}.")
         random.seed(a=None, version=2)
         
@@ -87,4 +87,4 @@ class warrriorcats(Cog)
     #async def warriorappearance(self, ctx):
         
 async def setup(bot):
-    await bot.add_cog(Basic(bot))
+    await bot.add_cog(Warriors(bot))
