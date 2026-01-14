@@ -9,8 +9,7 @@ from helpers.placeholders import random_msg
 class Warriors(Cog):
     """Stuff I added because I'm too addicted."""
     
-    @commands.group()
-    @commands.command()
+    @commands.group(invoke_without_command=True)
     async def warriorname(self, ctx, mention: str | discord.User = None):
         """Generates your warrior name.
         It's always the same, unless you change it with warriorname set.
