@@ -296,25 +296,39 @@ hug_msg:
 
 # Clans that can be randomly chosen by the generator.
 random_clans:
- - "{thunderclan} ThunderClan"
- - "{shadowclan} ShadowClan"
- - "{windclan} WindClan"
- - "{riverclan} RiverClan"
- - "{skyclan} SkyClan"
+ - "ThunderClan"
+ - "ShadowClan"
+ - "WindClan"
+ - "RiverClan"
+ - "SkyClan"
 
 # Clans that can be chosen by the user.
 clans:
- - "{thunderclan} ThunderClan"
- - "{shadowclan} ShadowClan"
- - "{windclan} WindClan"
- - "{riverclan} RiverClan"
- - "{skyclan} SkyClan"
- - "{starclan} StarClan"
- - "{kittypet} Kittypet"
- - "{tribe} The Tribe Of Rushing Water"
- - "{bloodclan} BloodClan"
- - "{darkforest} The Dark Forest"
- - "{loner} Loner"
+ - "ThunderClan"
+ - "ShadowClan"
+ - "WindClan"
+ - "RiverClan"
+ - "SkyClan"
+ - "StarClan"
+ - "Kittypet"
+ - "The Tribe Of Rushing Water"
+ - "BloodClan"
+ - "The Dark Forest"
+ - "Loner"
+
+clan_emojis:
+  ThunderClan: "{thunderclan}"
+  ShadowClan: "{shadowclan}"
+  WindClan: "{windclan}"
+  RiverClan: "{riverclan}"
+  SkyClan: "{skyclan}"
+  StarClan: "{starclan}"
+  Kittypet: "{kittypet}"
+  The Tribe Of Rushing Water: "{tribe}"
+  BloodClan: "{bloodclan}"
+  The Dark Forest: "{darkforest}"
+  Loner: "{loner}"
+
 
 prefix:
  - "Acorn"

@@ -106,10 +106,9 @@ class Warriors(Cog):
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         normal_clans = placeholders["clans"]
-        clans = placeholders["clans"]
         clan = clan.lower().title().replace("clan", "Clan")
-        if clan in clans:
-            profile["wcclan"] = clan
+        if clan in normal_clans:
+            profile["wcclan"] = placeholders["clan_emojis"][clan] + clan
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
             await ctx.send(f"Clan set to {clan}.")
         else:
