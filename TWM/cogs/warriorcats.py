@@ -1,10 +1,11 @@
 import random
 import discord
 import yaml
+import json
 from helpers.sv_config import get_config
 from discord.ext import commands
 from discord.ext.commands import Cog
-from helpers.datafiles import fill_profile
+from helpers.datafiles import fill_profile, set_userfile
 from helpers.placeholders import random_msg
 
 class Warriors(Cog):
@@ -55,6 +56,8 @@ class Warriors(Cog):
         prefix = prefix.lower().capitalize()
         if prefix in normal_prefixes:
             profile["wcprefix"] = prefix
+            set_userfile(ctx.author.id, "profile", json.dumps(profile))
+            await ctx.send(f"Prefix set to {prefix}")
         else:
             await ctx.send("That's not a valid prefix. Only prefixes from the series are allowed.")
             
@@ -72,6 +75,8 @@ class Warriors(Cog):
         suffix = suffix.lower()
         if suffix in normal_suffixes:
             profile["wcsuffix"] = suffix
+            set_userfile(ctx.author.id, "profile", json.dumps(profile))
+            await ctx.send(f"Suffix set to {suffix}")
         else:
             await ctx.send("That's not a valid suffix. Only suffixes from the series are allowed.")
             
@@ -89,6 +94,8 @@ class Warriors(Cog):
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
             profile["wcclan"] = clan
+            set_userfile(ctx.author.id, "profile", json.dumps(profile))
+            await ctx.send(f"Clan set to {clan}")
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
