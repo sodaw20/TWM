@@ -26,7 +26,7 @@ class Warriors(Cog):
         else:
             random.seed(a=mention, version=2)
         name = random_msg("prefix")+random_msg("suffix")
-        clan = random_msg("clan")
+        clan = random_msg("random_clans")
         await ctx.send(f"Your warrior name is {name} from {clan}.")
         random.seed(a=None, version=2)
         
