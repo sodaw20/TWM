@@ -52,10 +52,12 @@ class Warriors(Cog):
         else:
             random.seed(a=mention, version=2)
         
+        shorthands = placeholders["shorthands"]
+
         prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
         suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
         clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
-        clanemoji = placeholders["clan_emojis"][clan]+ " " + clan if profile["wcclan"] == None else clan
+        clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan if profile["wcclan"] == None else clan
         await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
@@ -112,9 +114,10 @@ class Warriors(Cog):
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         normal_clans = placeholders["clans"]
+        shorthands = placeholders["shorthands"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
-            clanemoji = placeholders["clan_emojis"][clan]+ " " + clan
+            clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan
             profile["wcclan"] = clanemoji
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
             
