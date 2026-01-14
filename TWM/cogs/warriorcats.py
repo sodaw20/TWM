@@ -110,9 +110,11 @@ class Warriors(Cog):
         normal_clans = placeholders["clans"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
-            profile["wcclan"] = placeholders["clan_emojis"][clan] + " " + clan
+            clanemoji = placeholders["clan_emojis"][clan]+ " " + clan
+            profile["wcclan"] = clanemoji
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
-            await ctx.send(f"Clan set to {placeholders["clan_emojis"][clan]+ " " + clan}.")
+            
+            await ctx.send(f"Clan set to {clanemoji}.")
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
