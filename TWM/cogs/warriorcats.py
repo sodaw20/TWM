@@ -97,7 +97,7 @@ class Warriors(Cog):
     @wcsetname.command(name="clan")
     async def wcsetclan(self, ctx, clan: str):
         """Sets your clan.
-        
+
         Legal home changer?!?!?
         
         - `clan`
@@ -106,8 +106,9 @@ class Warriors(Cog):
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         normal_clans = placeholders["clans"]
+        clans = placeholders["clans"]
         clan = clan.lower().title().replace("clan", "Clan")
-        if clan in normal_clans:
+        if clan in clans:
             profile["wcclan"] = clan
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
             await ctx.send(f"Clan set to {clan}.")
