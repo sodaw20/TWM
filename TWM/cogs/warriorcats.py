@@ -41,16 +41,18 @@ class Warriors(Cog):
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional."""
         if mention == None:
             mention = ctx.author.mention
-
+        profile = fill_profile(ctx.author.id)
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
         elif mention == "random":
             random.seed(a=None, version=2)
         else:
             random.seed(a=mention, version=2)
-        name = random_msg("prefix")+random_msg("suffix")
-        clan = random_msg("random_clans")
-        await ctx.send(f"Your warrior name is {name} from {clan}.")
+        
+        prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
+        suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
+        clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
+        await ctx.send(f"Your warrior name is {prefix+suffix} from {clan}.")
         random.seed(a=None, version=2)
         
     
@@ -108,9 +110,9 @@ class Warriors(Cog):
         normal_clans = placeholders["clans"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
-            profile["wcclan"] = placeholders["clan_emojis"][clan] + clan
+            profile["wcclan"] = placeholders["clan_emojis"][clan] + " " + clan
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
-            await ctx.send(f"Clan set to {placeholders["clan_emojis"][clan] + clan}.")
+            await ctx.send(f"Clan set to {placeholders["clan_emojis"][clan]+ " " + clan}.")
         else:
             await ctx.send("That's not a valid clan. Only clans from the series are allowed.")
             
