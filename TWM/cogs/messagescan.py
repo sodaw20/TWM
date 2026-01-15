@@ -520,7 +520,7 @@ class Messagescan(Cog):
             if message.guild:
                 await message.delete()
                 await ctx.author.timeout(timedelta(seconds=60), reason="...")
-        elif '67' in message.content or '6 7' in message.content.lower():
+        elif '67 ' in message.content or ' 67' in message.content or message.content == 67:
             await message.reply(content="No.")
 
 
