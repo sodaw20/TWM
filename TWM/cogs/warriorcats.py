@@ -53,7 +53,7 @@ class Warriors(Cog):
         else:
             random.seed(a=mention, version=2)
 
-        profile = fill_profile(mention.id) if isinstance(mention, discord.User) else None
+        profile = fill_profile(mention.id) if isinstance(mention, (discord.User, discord.Member)) else None
         
         shorthands = placeholders["shorthands"]
 
