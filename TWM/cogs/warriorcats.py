@@ -52,6 +52,9 @@ class Warriors(Cog):
 
         if mention == None:
             mention = await ctx.bot.fetch_user(ctx.author.id)
+
+        you = mention == ctx.bot.fetch_user(ctx.author.id)
+
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         if not(isinstance(mention, str)):
@@ -69,7 +72,10 @@ class Warriors(Cog):
         suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
         clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
         clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan if profile["wcclan"] == None else clan
-        await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
+        if you:
+            await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
+        else:
+            await ctx.send(f"Their warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
     
