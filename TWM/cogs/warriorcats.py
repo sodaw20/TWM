@@ -34,7 +34,7 @@ class Warriors(Cog):
         return
 
     @warriorname.command(name="get")
-    async def wcgetname(self, ctx, mention: str | discord.User = None):
+    async def wcgetname(self, ctx, mention: discord.User | str = None):
         """Gets your warrior name.
 
         It's always the same, unless you change it with warriorname set.
@@ -43,7 +43,7 @@ class Warriors(Cog):
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional."""
 
         if mention == None:
-            mention = ctx.author.mention
+            mention = ctx.bot.fetch_user(ctx.author.id)
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         if isinstance(mention, (discord.User, discord.Member)):
@@ -53,7 +53,7 @@ class Warriors(Cog):
         else:
             random.seed(a=mention, version=2)
 
-        profile = fill_profile(mention.id) if isinstance(mention, (discord.User, discord.Member)) else None
+        profile = fill_profile(mention.id) if isinstance(mention, (discord.User, discord.Member)) else {"wcprefix": None, "wcsuffix": None, "wcclan": None}
         
         shorthands = placeholders["shorthands"]
 
