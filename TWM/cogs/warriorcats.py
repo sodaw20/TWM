@@ -1,6 +1,7 @@
 import random
 import discord
 import yaml
+import re
 import json
 from helpers.sv_config import get_config
 from discord.ext import commands
@@ -34,13 +35,20 @@ class Warriors(Cog):
         return
 
     @warriorname.command(name="get")
-    async def wcgetname(self, ctx, mention: discord.User | str = None):
+    async def wcgetname(self, ctx, mention: str = None):
         """Gets your warrior name.
 
         It's always the same, unless you change it with warriorname set.
         
         - `mention`
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional."""
+
+        if mention:
+            match = re.search(r'<@!?(\d+)>', mention)
+            if match:
+                user_id_str = match.group(1)
+                user_id = int(user_id_str)
+                mention = ctx.bot.fetch_user(user_id)
 
         if mention == None:
             mention = ctx.bot.fetch_user(ctx.author.id)
