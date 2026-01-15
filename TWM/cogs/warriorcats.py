@@ -45,9 +45,9 @@ class Warriors(Cog):
             mention = ctx.author.mention
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
-        profile = fill_profile(mention.id)
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
+            profile = fill_profile(mention.id)
         elif mention == "random":
             random.seed(a=None, version=2)
         else:
@@ -55,9 +55,9 @@ class Warriors(Cog):
         
         shorthands = placeholders["shorthands"]
 
-        prefix = random_msg("prefix") if profile["wcprefix"] == None or mention != None else profile["wcprefix"]
-        suffix = random_msg("suffix") if profile["wcsuffix"] == None or mention != None else profile["wcsuffix"]
-        clan = random_msg("random_clans") if profile["wcclan"] == None or mention != None else profile["wcclan"]
+        prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
+        suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
+        clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
         clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan if profile["wcclan"] == None or mention != None else clan
         await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
@@ -121,7 +121,7 @@ class Warriors(Cog):
         shorthands = placeholders["shorthands"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
-            if get_config(ctx.guild.id, "staff", "clanemoji"):
+            if get_config(ctx.guild.id, "staff", "clanemoji") and clan == serverclan:
                 clanemoji = get_config(ctx.guild.id, "staff", "clanemoji")+ " " + clan
             else:
                 clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan
