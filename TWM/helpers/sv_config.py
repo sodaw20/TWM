@@ -25,8 +25,10 @@ def make_config(sid):
 
 def get_config(sid, part, key):
     config = fill_config(sid)
-
-    return config[part][key]
+    if config[part].get(key):
+        return config[part][key]
+    else:
+        return None
 
 
 def fill_config(sid):

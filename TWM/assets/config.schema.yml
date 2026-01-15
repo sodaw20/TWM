@@ -88,6 +88,14 @@ properties:
           - string
           - "null"
         minimum: 100000000000000000
+      clanname:
+        type:
+         - string
+         - "null"
+      clanemoji:
+        type:
+         - string
+         - "null"
   toss:
     type: object
     properties:

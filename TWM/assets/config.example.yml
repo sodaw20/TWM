@@ -48,6 +48,10 @@ staff:
   kickongambleloss: 
   # The role to give when someone gets lucky.
   gamblewinrole:
+  # The server's clan name.
+  clanname: 
+  # The server's clan emoji. Formatted like <:emoji:emojiid>
+  clanemoji: 
 
 
 toss:

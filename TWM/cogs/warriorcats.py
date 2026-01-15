@@ -7,6 +7,7 @@ from discord.ext import commands
 from discord.ext.commands import Cog
 from helpers.datafiles import fill_profile, set_userfile
 from helpers.placeholders import random_msg
+from helpers.sv_config import get_config
 
 class Warriors(Cog):
     """Stuff I added because I'm too addicted."""
@@ -113,11 +114,17 @@ class Warriors(Cog):
         profile = fill_profile(ctx.author.id)
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
+        serverclan = get_config(ctx.guild.id, "staff", "clanname")
         normal_clans = placeholders["clans"]
+        if serverclan:
+            normal_clans.append(serverclan)
         shorthands = placeholders["shorthands"]
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
-            clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan
+            if get_config(ctx.guild.id, "staff", "clanemoji"):
+                clanemoji = get_config(ctx.guild.id, "staff", "clanemoji")
+            else:
+                clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan
             profile["wcclan"] = clanemoji
             set_userfile(ctx.author.id, "profile", json.dumps(profile))
             
