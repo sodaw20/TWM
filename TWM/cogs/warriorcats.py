@@ -45,7 +45,7 @@ class Warriors(Cog):
             mention = ctx.author.mention
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
-        profile = fill_profile(ctx.author.id)
+        profile = fill_profile(mention.id)
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
         elif mention == "random":
