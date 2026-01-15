@@ -122,7 +122,7 @@ class Warriors(Cog):
         clan = clan.lower().title().replace("clan", "Clan")
         if clan in normal_clans:
             if get_config(ctx.guild.id, "staff", "clanemoji"):
-                clanemoji = get_config(ctx.guild.id, "staff", "clanemoji")
+                clanemoji = get_config(ctx.guild.id, "staff", "clanemoji")+ " " + clan
             else:
                 clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan
             profile["wcclan"] = clanemoji
