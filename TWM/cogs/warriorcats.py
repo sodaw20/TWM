@@ -41,11 +41,12 @@ class Warriors(Cog):
         
         - `mention`
         The user to get the warrior name of. Defaults to you. Set to random for a random name. Optional."""
+
         if mention == None:
             mention = ctx.author.mention
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
-        if isinstance(mention, discord.User):
+        if isinstance(mention, discord.User, discord.Member):
             random.seed(a=mention.id, version=2)
         elif mention == "random":
             random.seed(a=None, version=2)
