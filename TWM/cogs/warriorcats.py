@@ -47,18 +47,19 @@ class Warriors(Cog):
             placeholders = yaml.safe_load(f)
         if isinstance(mention, discord.User):
             random.seed(a=mention.id, version=2)
-            profile = fill_profile(mention.id)
         elif mention == "random":
             random.seed(a=None, version=2)
         else:
             random.seed(a=mention, version=2)
+
+        profile = fill_profile(mention.id) if isinstance(mention, discord.User) else None
         
         shorthands = placeholders["shorthands"]
 
         prefix = random_msg("prefix") if profile["wcprefix"] == None else profile["wcprefix"]
         suffix = random_msg("suffix") if profile["wcsuffix"] == None else profile["wcsuffix"]
         clan = random_msg("random_clans") if profile["wcclan"] == None else profile["wcclan"]
-        clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan if profile["wcclan"] == None or mention != None else clan
+        clanemoji = placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan if profile["wcclan"] == None else clan
         await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
