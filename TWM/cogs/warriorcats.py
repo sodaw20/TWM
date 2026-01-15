@@ -48,10 +48,10 @@ class Warriors(Cog):
             if match:
                 user_id_str = match.group(1)
                 user_id = int(user_id_str)
-                mention = ctx.bot.fetch_user(user_id)
+                mention = await ctx.bot.fetch_user(user_id)
 
         if mention == None:
-            mention = ctx.bot.fetch_user(ctx.author.id)
+            mention = await ctx.bot.fetch_user(ctx.author.id)
         with open("assets/placeholders.yml", "r") as f:
             placeholders = yaml.safe_load(f)
         if not(isinstance(mention, str)):
