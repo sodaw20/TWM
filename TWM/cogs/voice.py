@@ -8,16 +8,13 @@ import yt_dlp
 import urllib.request
 import re
 import youtube_dlc
+import requests
 
 
 class Voice(Cog):
     """Broken. DO NOT USE!!!"""
 
     def __init__(self, bot):
-        FFMPEG_OPTIONS = {
-            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
-            "options": "-vn",
-        }
         self.bot = bot
 
     @commands.command()
@@ -79,12 +76,15 @@ class Voice(Cog):
         Checks where the command's author is, searches for the music required, joins the same channel as the command's
         author and then plays the audio directly from YouTube.
 
-        :param ctx: discord.ext.commands.Context
-        :param arg: str
-            arg can be url to video on YouTube or just as you would search it normally.
-        :return: None
+        - `arg`
+        arg can be url to video on YouTube or just as you would search it normally.
         """
         try:
+
+            FFMPEG_OPTIONS = {
+            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+            "options": "-vn",
+            }
             voice_channel = ctx.author.voice.channel
 
         # If command's author isn't connected, return.
