@@ -327,9 +327,13 @@ class Basic(Cog):
         await msg.edit(content=post, allowed_mentions=allowed_mentions)
         msg = await ctx.fetch_message(id)
 
+        userlist = []
         await ctx.send(msg.reactions)
         async for user in msg.reactions[correct_reaction].users():
-            await msg.reply(user)
+            userlist.append(user)
+        userlist = "\n".join(userlist[1:])
+        await ctx.send(userlist)
+            
 
     @commands.command()
     async def hug(self, ctx, someone: str=None):
