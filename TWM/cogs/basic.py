@@ -331,7 +331,7 @@ class Basic(Cog):
         await ctx.send(msg.reactions)
         async for user in msg.reactions[correct_reaction].users():
             userlist.append(user)
-        userlist = "\n".join(userlist[1:])
+        userlist = "\n".join(userlist.name[1:])
         await ctx.send(userlist)
             
 
