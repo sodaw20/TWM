@@ -328,11 +328,10 @@ class Basic(Cog):
         msg = await ctx.fetch_message(id)
 
         userlist = []
-        await ctx.send(msg.reactions)
         async for user in msg.reactions[correct_reaction].users():
             userlist.append(user.name)
         userlist = "\n".join(userlist[1:])
-        await ctx.send(userlist)
+        await ctx.send("The winners were: \n" + userlist)
             
 
     @commands.command()
