@@ -75,7 +75,7 @@ class Warriors(Cog):
         if you:
             await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
         else:
-            await ctx.send(f"Their warrior name is {prefix+suffix} from {clanemoji}.")
+            await ctx.send(f"{mention.display_name}'s warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
     
