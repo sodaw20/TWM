@@ -74,8 +74,10 @@ class Warriors(Cog):
         clanemoji = (placeholders["clan_emojis"][clan].format(**shorthands)+ " " + clan) if (profile["wcclan"] if profile["wcclan"] else random_msg("random_clans")) in placeholders["clans"] else clan
         if you:
             await ctx.send(f"Your warrior name is {prefix+suffix} from {clanemoji}.")
-        else:
+        elif mention.display_name:
             await ctx.send(f"{mention.display_name}'s warrior name is {prefix+suffix} from {clanemoji}.")
+        else:
+            await ctx.send(f"{mention}'s warrior name is {prefix+suffix} from {clanemoji}.")
         random.seed(a=None, version=2)
         
     
