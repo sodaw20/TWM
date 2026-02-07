@@ -128,8 +128,8 @@ class Voice(Cog):
         await ctx.send(thumb)
         await ctx.send(f"Playing {title}")
 
-        source = discord.FFmpegPCMAudio(url)
-        voice.play(source, after=None)
+        source = discord.FFmpegPCMAudio(source=source)
+        voice.play(source)
 
 
 async def setup(bot):
