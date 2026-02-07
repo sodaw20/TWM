@@ -88,7 +88,7 @@ class Voice(Cog):
             await ctx.send("Please connect to the voice channel first!")
             return
         FFMPEG_OPTIONS = {
-            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5 -probesize 200M",
             "options": "-vn",
             }
         ydl_opts = {
@@ -114,7 +114,8 @@ class Voice(Cog):
             else:
                 info = ydl.sanitize_info(ydl.extract_info(arg, download=False))
 
-        url = info["formats"][0]["url"]
+        url = info["url"]
+        print(url)
         thumb = info["thumbnails"][0]["url"]
         title = info["title"]
 
@@ -127,7 +128,7 @@ class Voice(Cog):
         await ctx.send(thumb)
         await ctx.send(f"Playing {title}")
 
-        source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
+        source = await discord.FFmpegPCMAudio(url)
         voice.play(source, after=None)
 
 
