@@ -80,11 +80,6 @@ class Voice(Cog):
         arg can be url to video on YouTube or just as you would search it normally.
         """
         try:
-
-            FFMPEG_OPTIONS = {
-            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
-            "options": "-vn",
-            }
             voice_channel = ctx.author.voice.channel
 
         # If command's author isn't connected, return.
@@ -92,19 +87,32 @@ class Voice(Cog):
             print(e)
             await ctx.send("Please connect to the voice channel first!")
             return
-
+        FFMPEG_OPTIONS = {
+            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+            "options": "-vn",
+            }
+        ydl_opts = {
+        'format': 'bestaudio/best',
+        'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+        'quiet': True,
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+        }
         # Finds author's session.
         session = ctx.guild.voice_client
 
         # Searches for the video
-        with yt_dlp.YoutubeDL({"format": "bestaudio", "noplaylist": "True"}) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             try:
                 requests.get(arg)
             except Exception as e:
                 print(e)
                 info = ydl.extract_info(f"ytsearch:{arg}", download=False)["entries"][0]
             else:
-                info = ydl.extract_info(arg, download=False)
+                info = ydl.sanitize_info(ydl.extract_info(arg, download=False))
 
         url = info["formats"][0]["url"]
         thumb = info["thumbnails"][0]["url"]
@@ -120,7 +128,7 @@ class Voice(Cog):
         await ctx.send(f"Playing {title}")
 
         source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
-        await voice.play(source, after=None)
+        voice.play(source, after=None)
 
 
 async def setup(bot):
