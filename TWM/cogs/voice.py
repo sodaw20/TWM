@@ -120,7 +120,7 @@ class Voice(Cog):
         await ctx.send(f"Playing {title}")
 
         source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
-        voice.play(source, after=None)
+        await voice.play(source, after=None)
 
 
 async def setup(bot):
