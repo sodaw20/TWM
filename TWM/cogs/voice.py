@@ -129,7 +129,7 @@ class Voice(Cog):
         await ctx.send(f"Playing {title}")
 
         source = discord.FFmpegPCMAudio(url, before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5", options="-vn")
-        audio = discord.FFmpegPCMAudio(url, **FFMPEG_OPTIONS, volume=0.5) 
+        audio = discord.FFmpegPCMAudio(url, **FFMPEG_OPTIONS) 
         await voice.play(audio)
         #voice.play(source)
 
