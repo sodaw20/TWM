@@ -133,6 +133,15 @@ class Voice(Cog):
         await voice.play(audio)
         #voice.play(source)
 
+    @commands.command()
+    async def stop(self, ctx):
+        voice = ctx.guild.voice_client
+        if voice and voice.is_playing():
+            await voice.stop()
+            await ctx.send("Audio stopped.")
+        else:
+            await ctx.send("No audio is currently playing.")
+
 
 async def setup(bot):
     await bot.add_cog(Voice(bot))
