@@ -10,6 +10,8 @@ import config
 import random
 import asyncio
 import shutil
+import requests
+import yt_dlp
 import os
 from io import StringIO
 from contextlib import redirect_stdout
@@ -477,6 +479,8 @@ class Admin(Cog):
                 "random": random,
                 "os": os,
                 "get_config": get_config,
+                "requests": requests,
+                "yt_dlp": yt_dlp,
                 # utilities
                 "_get": discord.utils.get,
                 "_find": discord.utils.find,
@@ -542,6 +546,8 @@ class Admin(Cog):
                 "random": random,
                 "os": os,
                 "get_config": get_config,
+                "requests": requests,
+                "yt_dlp": yt_dlp,
                 # utilities
                 "_get": discord.utils.get,
                 "_find": discord.utils.find,
