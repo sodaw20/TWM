@@ -130,14 +130,20 @@ class Voice(Cog):
 
         source = discord.FFmpegPCMAudio(url, before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5", options="-vn")
         audio = discord.FFmpegPCMAudio(url, **FFMPEG_OPTIONS) 
-        await voice.play(audio)
+        try:
+            await voice.play(audio)
+        except TypeError as e:
+            print(e)
         #voice.play(source)
 
     @commands.command()
     async def stop(self, ctx):
         voice = ctx.guild.voice_client
         if voice and voice.is_playing():
-            await voice.stop()
+            try:
+                await voice.stop()
+            except TypeError as e:
+                print(e)
             await ctx.send("Audio stopped.")
         else:
             await ctx.send("No audio is currently playing.")
