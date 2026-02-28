@@ -74,6 +74,8 @@ async def isadmin(ctx, layered=False):
 async def ismod(ctx):
     if await ismanager(ctx, True):
         return True
+    if await isowner(ctx):
+        return True
     if isoverride(ctx)[0]:
         return isoverride(ctx)[1]
     elif isoverride(ctx)[1]:
